@@ -1,7 +1,9 @@
 from selenium import webdriver
 from main import Chrome
 
-driver = Chrome.driver()
+
+chrome_1 = Chrome
+driver = chrome_1.driver()
 
 driver.get("https://www.google.com")
 
