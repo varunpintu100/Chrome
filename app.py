@@ -36,9 +36,9 @@ def browser():
 #this is used to navigate to the respected url
         driver.get(url)
 
-        print(driver.page_source)
+        source = str(driver.page_source)
         driver.quit()
-        return driver.page_source,200
+        return source,200
     return browser_name
 
 if __name__=='__main__':
