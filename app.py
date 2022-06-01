@@ -10,6 +10,8 @@ app = Flask(__name__)
 #this is used the security key
 app.secret_key='Varun'
 
+global driver
+
 #this is used to create the page
 @app.route("/")
 def select_browsers():
@@ -26,8 +28,10 @@ def browser():
 #this method is to return the driver from remote 
         driver = chrome_1.driver()
 
+        url = str(request.form['URL_Field'])
+        url= "https://"+url
 #this is used to navigate to the respected url
-        driver.get("https://varun-resume.herokuapp.com")
+        driver.get(url)
 
         print(driver.page_source)
 
