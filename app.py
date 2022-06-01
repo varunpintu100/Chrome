@@ -27,7 +27,7 @@ def browser():
 #this method is to return the driver from remote 
         driver = chrome_1.driver()
 
-        url = str(request.form['URL_Field'])
+        url = str(request.form["url_input"])
         
         print(url)
 #this is used to navigate to the respected url
