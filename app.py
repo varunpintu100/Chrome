@@ -1,5 +1,5 @@
 #these are the imports for flask
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 
 #these are the imports for selenium
 from driv import Chrome
@@ -18,16 +18,21 @@ def select_browsers():
 
 @app.route("/browser",methods=["POST"])
 def browser():
+    browser_name = request.form.get('browsers')
+    if browser_name=='chrome':
 # this class is to invoke the chrome from the main file
-    chrome_1 = Chrome()
+        chrome_1 = Chrome()
 
 #this method is to return the driver from remote 
-    driver = chrome_1.driver()
+        driver = chrome_1.driver()
 
 #this is used to navigate to the respected url
-    driver.get("https://varun-resume.herokuapp.com")
+        driver.get("https://varun-resume.herokuapp.com")
 
-    print(driver.page_source)
+        print(driver.page_source)
+
+        return browser_name
+    return browser_name
 
 if __name__=='__main__':
     app.run(port=5000,debug=True)
