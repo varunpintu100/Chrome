@@ -10,6 +10,7 @@ app = Flask(__name__)
 #this is used the security key
 app.secret_key='Varun'
 
+global driver
 
 #this is used to create the page
 @app.route("/")
@@ -28,6 +29,8 @@ def browser():
         driver = chrome_1.driver()
 
         url = str(request.form["url_input"])
+
+        url="https:"+url
         
         print(url)
 #this is used to navigate to the respected url
