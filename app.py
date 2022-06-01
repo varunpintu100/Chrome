@@ -37,7 +37,7 @@ def browser():
         driver.get(url)
 
         print(driver.page_source)
-
+        driver.quit()
         return driver.page_source,200
     return browser_name
 
