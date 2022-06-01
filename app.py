@@ -10,7 +10,6 @@ app = Flask(__name__)
 #this is used the security key
 app.secret_key='Varun'
 
-global driver
 
 #this is used to create the page
 @app.route("/")
