@@ -1,6 +1,5 @@
 #these are the imports for flask
 from flask import Flask,render_template,request,url_for
-import logging as log
 
 #these are the imports for selenium
 from selenium import webdriver
@@ -32,4 +31,4 @@ def browser():
     print(driver.page_source)
 
 if __name__=='__main__':
-    app.run(port=8080,debug=True)
+    app.run(port=5000,debug=True)
