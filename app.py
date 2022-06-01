@@ -1,6 +1,6 @@
 #these are the imports for flask
 from flask import Flask,render_template,request
-
+from castro import Castro
 #these are the imports for selenium
 from driv import Chrome
 
@@ -22,9 +22,10 @@ def select_browsers():
 def browser():
     browser_name = request.form.get('browsers')
     if browser_name=='chrome':
+        c=Castro()
 # this class is to invoke the chrome from the main file
         chrome_1 = Chrome()
-
+        c.start()
 #this method is to return the driver from remote 
         driver = chrome_1.driver()
 
@@ -37,6 +38,7 @@ def browser():
         driver.get(url)
 
         source = str(driver.page_source)
+        c.stop()
         driver.quit()
         return source,200
     return browser_name
