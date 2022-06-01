@@ -30,6 +30,8 @@ def browser():
 
         url = str(request.form['URL_Field'])
         url= "https://"+url
+        
+        print(url)
 #this is used to navigate to the respected url
         driver.get(url)
 
