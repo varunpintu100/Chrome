@@ -1,8 +1,7 @@
 #these are the imports for flask
-from flask import Flask,render_template,request,url_for
+from flask import Flask,render_template
 
 #these are the imports for selenium
-from selenium import webdriver
 from main import Chrome
 
 #this is the step used to declare the flask app
