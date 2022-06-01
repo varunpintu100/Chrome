@@ -29,7 +29,6 @@ def browser():
         driver = chrome_1.driver()
 
         url = str(request.form['URL_Field'])
-        url= "https://"+url
         
         print(url)
 #this is used to navigate to the respected url
