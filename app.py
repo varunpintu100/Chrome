@@ -2,7 +2,7 @@
 from flask import Flask,render_template
 
 #these are the imports for selenium
-from main import Chrome
+from driv import Chrome
 
 #this is the step used to declare the flask app
 app = Flask(__name__)
