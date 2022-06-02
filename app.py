@@ -43,9 +43,9 @@ def browser():
 
         if action_item == "getText":
 
-            text = driver.find_element_by_xpath(xpath=xpath).text()
+            temp = driver.find_element_by_xpath(xpath=xpath).text
 
-            print(text)
+            print(temp)
         
         if action_item == "Input":
 
