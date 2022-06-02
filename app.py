@@ -39,17 +39,17 @@ def browser():
 
         if action_item == "click":
 
-            driver.click(xpath)
+            driver.find_element_by_xpath(xpath=xpath).click()
 
         if action_item == "getText":
 
-            text = driver.text(xpath)
+            text = driver.find_element_by_xpath(xpath=xpath).text()
 
             print(text)
         
         if action_item == "Input":
 
-            driver.send_keys(xpath)
+            driver.find_element_by_xpath(xpath=xpath).send_keys("Varun")
 
         source = str(driver.page_source)
         driver.quit()
