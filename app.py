@@ -14,7 +14,7 @@ global driver
 #this is used to create the page
 @app.route("/")
 def select_browsers():
-        return render_template('index.html',data=[{'name':'firefox'},{'name':'chrome'},{'name':'IE'}])
+        return render_template('index.html',data=[{'name':'firefox'},{'name':'chrome'},{'name':'IE'}],actions=[{'action':'click'},{'action':'getText'},{'action':'Input'}])
 
 
 @app.route("/browser",methods=["POST"])
@@ -29,10 +29,27 @@ def browser():
         url = str(request.form["url_input"])
 
         url="https:"+url
-        
+        action_item = request.form.get('Actions')
+
+        xpath = str(request.form["Xpath_info"])
+
         print(url)
 #this is used to navigate to the respected url
         driver.get(url)
+
+        if action_item == "click":
+
+            driver.click(xpath)
+
+        if action_item == "getText":
+
+            text = driver.text(xpath)
+
+            print(text)
+        
+        if action_item == "Input":
+
+            driver.send_keys(xpath)
 
         source = str(driver.page_source)
         driver.quit()

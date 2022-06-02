@@ -15,6 +15,13 @@
     <br>
     <label>Please enter the url :</label>
     <input type="text" name="url_input">
+    <select name="Actions">
+    {% for o in actions %}
+    <option value="{{ o.action}}">{{o.action}}</option>
+    {% endfor %}
+    </select>
+    <input type="text" name="Xpath_info">
+    <br>
     <button type="submit" value="Select_Browser">Select</button>
     </form>
 </body>
