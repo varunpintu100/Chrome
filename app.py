@@ -46,18 +46,19 @@ def browser():
 #this is used to navigate to the respected url
             driver.get(url)
 
+            if xpath=="":
             #this is used to perform the action item and based on the if condition respective action will happen
-            if action_item == "click":
+                if action_item == "click":
 
-                driver.find_element_by_xpath(xpath=xpath).click()
+                    driver.find_element_by_xpath(xpath=xpath).click()
 
-            if action_item == "getText":
+                if action_item == "getText":
 
-                temp = driver.find_element_by_xpath(xpath=xpath).text
+                    temp = driver.find_element_by_xpath(xpath=xpath).text
         
-            if action_item == "Input":
+                if action_item == "Input":
 
-                driver.find_element_by_xpath(xpath=xpath).send_keys("Varun")
+                    driver.find_element_by_xpath(xpath=xpath).send_keys("Varun")
 
             #this is used to store the source of the page as a string
             source = str(driver.page_source)
