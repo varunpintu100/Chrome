@@ -1,4 +1,5 @@
 #these are the imports for flask
+from curses.ascii import NUL
 from flask import Flask,render_template,request
 #these are the imports for selenium
 from driv import Chrome
@@ -21,6 +22,7 @@ def select_browsers():
 def browser():
     browser_name = request.form.get('browsers')
     if browser_name=='chrome':
+        temp=""
 # this class is to invoke the chrome from the main file
         chrome_1 = Chrome()
 #this method is to return the driver from remote 
@@ -44,8 +46,6 @@ def browser():
         if action_item == "getText":
 
             temp = driver.find_element_by_xpath(xpath=xpath).text
-
-            print(temp)
         
         if action_item == "Input":
 
@@ -53,7 +53,9 @@ def browser():
 
         source = str(driver.page_source)
         driver.quit()
-        return source,200
+        if temp!="":
+            return source,200
+        return temp
     return browser_name
 
 if __name__=='__main__':
