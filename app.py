@@ -53,7 +53,7 @@ def browser():
 
         source = str(driver.page_source)
         driver.quit()
-        if temp!="":
+        if temp=="":
             return source,200
         return temp
     return browser_name
