@@ -20,43 +20,47 @@ def select_browsers():
 
 @app.route("/browser",methods=["POST"])
 def browser():
-    browser_name = request.form.get('browsers')
-    if browser_name=='chrome':
-        temp=""
+    try:
+        browser_name = request.form.get('browsers')
+        if browser_name=='chrome':
+            temp=""
 # this class is to invoke the chrome from the main file
-        chrome_1 = Chrome()
+            chrome_1 = Chrome()
 #this method is to return the driver from remote 
-        driver = chrome_1.driver()
+            driver = chrome_1.driver()
 
-        url = str(request.form["url_input"])
+            url = str(request.form["url_input"])
 
-        url="https:"+url
-        action_item = request.form.get('Actions')
+            url="https:"+url
+            action_item = request.form.get('Actions')
 
-        xpath = str(request.form["Xpath_info"])
+            xpath = str(request.form["Xpath_info"])
 
-        print(url)
+            print(url)
 #this is used to navigate to the respected url
-        driver.get(url)
+            driver.get(url)
 
-        if action_item == "click":
+            if action_item == "click":
 
-            driver.find_element_by_xpath(xpath=xpath).click()
+                driver.find_element_by_xpath(xpath=xpath).click()
 
-        if action_item == "getText":
+            if action_item == "getText":
 
-            temp = driver.find_element_by_xpath(xpath=xpath).text
+                temp = driver.find_element_by_xpath(xpath=xpath).text
         
-        if action_item == "Input":
+            if action_item == "Input":
 
-            driver.find_element_by_xpath(xpath=xpath).send_keys("Varun")
+                driver.find_element_by_xpath(xpath=xpath).send_keys("Varun")
 
-        source = str(driver.page_source)
-        driver.quit()
-        if temp=="":
-            return source,200
-        return temp
-    return browser_name
+            source = str(driver.page_source)
+            driver.quit()
+            if temp=="":
+                return source,200
+            return temp
+        return browser_name
+    except:
+        driver.quit() 
+            
 
 if __name__=='__main__':
     app.run(port=5000,debug=True)
