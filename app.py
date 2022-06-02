@@ -22,8 +22,9 @@ def select_browsers():
 @app.route("/browser",methods=["POST"])
 def browser():
     #this medthod is used to try and find the exceptions if needed.
+    browser_name = request.form.get('browsers')
+
     try:
-        browser_name = request.form.get('browsers')
         #this is the condition used to check the data whether the name of the browser is correct or not
         if browser_name=='chrome':
 
@@ -46,7 +47,7 @@ def browser():
 #this is used to navigate to the respected url
             driver.get(url)
 
-            if xpath=="":
+            if xpath!="":
             #this is used to perform the action item and based on the if condition respective action will happen
                 if action_item == "click":
 
