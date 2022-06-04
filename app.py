@@ -11,14 +11,11 @@ app.secret_key='Varun'
 
 #this is to use the driver globally
 global driver
-global count
-
-count=0
 
 #this is used to create the page
 @app.route("/")
 def select_browsers():
-        return render_template('index.html',data=[{'name':'firefox'},{'name':'chrome'},{'name':'IE'}],actions=[{'action':'click'},{'action':'getText'},{'action':'Input'}],test=count)
+        return render_template('index.html',data=[{'name':'firefox'},{'name':'chrome'},{'name':'IE'}],actions=[{'action':'click'},{'action':'getText'},{'action':'Input'}],test=0)
 
 @app.route("/count")
 def input_count():
