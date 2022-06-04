@@ -47,6 +47,7 @@ def browser():
             xpath = str(request.form["Xpath_info"])
             #this is o get the url in the console
             print(url)
+            print(xpath)
 #this is used to navigate to the respected url
             driver.get(url)
 
