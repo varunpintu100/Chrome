@@ -1,5 +1,4 @@
 #these are the imports for flask
-from curses.ascii import NUL
 from flask import Flask,render_template,request
 #these are the imports for selenium
 from driv import Chrome
