@@ -17,7 +17,7 @@ global driver
 def select_browsers():
         return render_template('index.html',data=[{'name':'firefox'},{'name':'chrome'},{'name':'IE'}],actions=[{'action':'click'},{'action':'getText'},{'action':'Input'}],test=0)
 
-@app.route("/count")
+@app.route("/count",methods=["POST"])
 def input_count():
     count = int(request.form['number_input'])
     return render_template('index.html',data=[{'name':'firefox'},{'name':'chrome'},{'name':'IE'}],actions=[{'action':'click'},{'action':'getText'},{'action':'Input'}],test=count)
@@ -35,7 +35,7 @@ def browser():
             temp=""
 # this class is to invoke the chrome from the main file
             chrome_1 = Chrome()
-#this method is to return the driver from remote 
+#this method is to return the driver from remote
             driver = chrome_1.driver()
 #this is used to get the data from the form in the html
             url = str(request.form["url_input"])
@@ -59,7 +59,7 @@ def browser():
                 if action_item == "getText":
 
                     temp = driver.find_element_by_xpath(xpath=xpath).text
-        
+
                 if action_item == "Input":
 
                     driver.find_element_by_xpath(xpath=xpath).send_keys("Varun")
@@ -77,7 +77,7 @@ def browser():
         driver.quit()
 
         return {"message":"Exception"}
-            
+
 
 if __name__=='__main__':
     app.run(port=5000,debug=True)
