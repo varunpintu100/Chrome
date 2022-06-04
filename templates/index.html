@@ -15,19 +15,21 @@
     <br>
     <label>Please enter the url :</label>
     <input type="text" name="url_input">
-    <select name="Actions">
+    <br>
     {% for i in range(0,test) %}
+    <select name="Actions">
     {% for o in actions %}
     <option value="{{ o.action}}">{{o.action}}</option>
-    {% endfor %}
     {% endfor %}
     </select>
     <input type="text" name="Xpath_info">
     <br>
+    {% endfor %}
     <button type="submit" value="Select_Browser">Select</button>
     </form>
     <form method="POST" action="{{ url_for('input_count') }}">
         <input type="number" name="number_input">
+        <br>
         <button type="submit" value="Select_data">InputSubmit</button>
     </form>
 </body>
