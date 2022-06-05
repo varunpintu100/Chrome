@@ -75,10 +75,10 @@ def browser():
             return temp
         return browser_name
 #this is used to quit the driver when some exception occurs all of a sudden.
-    except:
+    except Exception as e:
         driver.quit()
 
-        return {"message":"Exception"}
+        return {"message":f"Exception{e}"}
 
 
 if __name__=='__main__':
