@@ -2,6 +2,7 @@
 from flask import Flask,render_template,request
 #these are the imports for selenium
 from driv import Chrome
+from selenium.webdriver.common.keys import Keys
 
 #this is the step used to declare the flask app
 app = Flask(__name__)
@@ -12,15 +13,19 @@ app.secret_key='Varun'
 #this is to use the driver globally
 global driver
 
+data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
+
+actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':'Enter'}]
+
 #this is used to create the page
 @app.route("/")
 def select_browsers():
-        return render_template('index.html',data=[{'name':'firefox'},{'name':'chrome'},{'name':'IE'}],actions=[{'action':'click'},{'action':'getText'},{'action':'Input'}],test=0)
+        return render_template('index.html',data=data,actions=actions,test=0)
 
 @app.route("/count",methods=["POST"])
 def input_count():
     count = int(request.form['number_input'])
-    return render_template('index.html',data=[{'name':'firefox'},{'name':'chrome'},{'name':'IE'}],actions=[{'action':'click'},{'action':'getText'},{'action':'Input'}],test=count)
+    return render_template('index.html',data=data,actions=actions,test=count)
 
 @app.route("/browser",methods=["POST"])
 def browser():
@@ -65,6 +70,10 @@ def browser():
                     if action_item[i] == "Input":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys("Herokuapp")
+                    
+                    if action_item[i] == "Enter":
+
+                        driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.Enter)
 
             #this is used to store the source of the page as a string
             source = str(driver.page_source)
