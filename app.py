@@ -40,7 +40,7 @@ def browser():
 #this is used to get the data from the form in the html
             url = str(request.form["url_input"])
 #this is used to add https: in the starting of the url
-            url="https:"+url
+            url="https://"+url
             #this is used to get the type of action that needs to be performed
             action_item = request.form.getlist('Actions')
             #this is used to get the xpath info from the forms
