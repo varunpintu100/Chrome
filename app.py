@@ -42,28 +42,29 @@ def browser():
 #this is used to add https: in the starting of the url
             url="https:"+url
             #this is used to get the type of action that needs to be performed
-            action_item = request.form.get('Actions')
+            action_item = request.form.getlist('Actions')
             #this is used to get the xpath info from the forms
-            xpath = str(request.form["Xpath_info"])
+            xpath = request.form.getlist("Xpath_info")
             #this is o get the url in the console
             print(url)
+            print(action_item)
             print(xpath)
 #this is used to navigate to the respected url
             driver.get(url)
-
-            if xpath!="":
+            for i in range(0,len(action_item)):
+                if xpath[i]!="":
             #this is used to perform the action item and based on the if condition respective action will happen
-                if action_item == "click":
+                    if action_item[i] == "click":
 
-                    driver.find_element_by_xpath(xpath=xpath).click()
+                        driver.find_element_by_xpath(xpath=xpath[i]).click()
 
-                if action_item == "getText":
+                    if action_item[i] == "getText":
 
-                    temp = driver.find_element_by_xpath(xpath=xpath).text
+                        temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
-                if action_item == "Input":
+                    if action_item[i] == "Input":
 
-                    driver.find_element_by_xpath(xpath=xpath).send_keys("Varun")
+                        driver.find_element_by_xpath(xpath=xpath[i]).send_keys("Herokuapp")
 
             #this is used to store the source of the page as a string
             source = str(driver.page_source)
