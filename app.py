@@ -73,7 +73,7 @@ def browser():
                     
                     if action_item[i] == "Enter":
 
-                        driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.Enter)
+                        driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
 
             #this is used to store the source of the page as a string
             source = str(driver.page_source)
