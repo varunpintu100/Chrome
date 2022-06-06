@@ -1,14 +1,20 @@
-// function yesnoCheck(that) {
-//     if (that.value == "Input") {
-//   alert("This field is to send data");
-//         document.getElementById("ifYes").style.display = "block";
-//     } else {
-//         document.getElementById("ifYes").style.display = "none";
-//     }
-// }
+function yesnoCheck() {
+    let test,data,i;
+    test = document.getElementsByName("Actions");
+    data = document.getElementsByName("Input_text_1");
+    for(i=0;i<test.length;i++)
+    {
+    if (test[i].value == "Input") {
+    alert("This field is to send data");
+        data[i].style.display = "block";
+    } else {
+        data[i].style.display = "none";
+    }
+}
+}
 function display_c(){
     var refresh=1000; // Refresh rate in milli seconds
-    mytime=setTimeout('display_ct()',refresh)
+    mytime=setTimeout('display_ct()','yesnoCheck()',refresh)
 }// This is used to display the clock under the span
 function display_ct() {
     var x = new Date()

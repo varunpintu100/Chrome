@@ -3,7 +3,6 @@ from flask import Flask,render_template,request
 #these are the imports for selenium
 from driv import Chrome
 from selenium.webdriver.common.keys import Keys
-from datetime import datetime
 
 #this is the step used to declare the flask app
 app = Flask(__name__)
@@ -14,6 +13,7 @@ app.secret_key='Varun'
 #this is to use the driver globally
 global driver
 
+j=0
 data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 
 actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':'Enter'}]
@@ -51,6 +51,8 @@ def browser():
             action_item = request.form.getlist('Actions')
             #this is used to get the xpath info from the forms
             xpath = request.form.getlist("Xpath_info")
+
+            input_data = request.form.getlist("Input_text")
             #this is o get the url in the console
             print(url)
             print(action_item)
@@ -70,7 +72,8 @@ def browser():
 
                     if action_item[i] == "Input":
 
-                        driver.find_element_by_xpath(xpath=xpath[i]).send_keys("Herokuapp")
+                        driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
+                        j=j+1
                     
                     if action_item[i] == "Enter":
 
