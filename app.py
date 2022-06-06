@@ -13,7 +13,6 @@ app.secret_key='Varun'
 #this is to use the driver globally
 global driver
 
-j=0
 data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 
 actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':'Enter'}]
@@ -59,6 +58,7 @@ def browser():
             print(xpath)
 #this is used to navigate to the respected url
             driver.get(url)
+            j=0
             for i in range(0,len(action_item)):
                 if xpath[i]!="":
             #this is used to perform the action item and based on the if condition respective action will happen
