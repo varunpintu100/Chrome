@@ -3,8 +3,9 @@
 <html lang="en">
 <head>
     <title>Project_code</title>
+    <script src="../static/script/indexscript.js"></script> 
     </head>
-<body>
+<body onload="display_ct();">
     <h1>Project_Code</h1>
     <form method="POST" action="{{ url_for('browser') }}">
     <label>Choose a browser :</label>
@@ -18,13 +19,16 @@
     <input type="text" name="url_input">
     <br>
     {% for i in range(0,test) %}
-    <select name="Actions">
+    <select name="Actions" onchange="yesnoCheck(this);">
     {% for o in actions %}
     <option value="{{ o.action}}">{{o.action}}</option>
     {% endfor %}
     </select>
     <input type="text" name="Xpath_info">
     <br>
+    <div id="ifYes" style="display: none;">
+    <label>Enter the data :</label><input type="text" name="Input_text">
+    </div>
     {% endfor %}
     <button type="submit" value="Select_Browser">Select</button>
     </form>
@@ -34,4 +38,6 @@
         <br>
         <button type="submit" value="Select_data">InputSubmit</button>
     </form>
+    <span id='ct' ></span>
 </body>
+</script> 
