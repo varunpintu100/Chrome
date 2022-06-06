@@ -9,11 +9,12 @@
 function display_c(){
     var refresh=1000; // Refresh rate in milli seconds
     mytime=setTimeout('display_ct()',refresh)
-}
+}// This is used to display the clock under the span
 function display_ct() {
     var x = new Date()
-    var x1=x.toUTCString();// changing the display to UTC string
+    var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
+    x1 = x1 + " - " +  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
     document.getElementById('ct').innerHTML = x1;
-    tt=display_c();
-}
+    display_c();
+     }
     
