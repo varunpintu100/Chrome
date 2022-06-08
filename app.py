@@ -31,7 +31,7 @@ def input_count():
 def browser():
     #this medthod is used to try and find the exceptions if needed.
     browser_name = request.form.get('browsers')
-    dir = '../ScreenShots/'
+    dir = 'ScreenShots'
     for file in os.scandir(dir):
         os.remove(file.path)
     try:
