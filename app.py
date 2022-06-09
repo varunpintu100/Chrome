@@ -64,41 +64,42 @@ def browser():
             driver.get(url)
             j=0
             for i in range(0,len(action_item)):
-                location = "image_"+str(i)+".png"
+                loc = os.path.join(app.root_path, app.config['ScreenShots'])
+                location = loc+"/image_"+str(i)+".png"
                 if xpath[i]!="":
             #this is used to perform the action item and based on the if condition respective action will happen
                     if action_item[i] == "click":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
 
-                        driver.save_screenshot(location)
+                        driver.get_screenshot_as_file(location)
 
                     if action_item[i] == "getText":
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
-                        driver.save_screenshot(location)
+                        driver.get_screenshot_as_file(location)
 
                     if action_item[i] == "Input":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
                         j=j+1
-                        driver.save_screenshot(location)
+                        driver.get_screenshot_as_file(location)
 
                     if action_item[i] == "Enter":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
-                        driver.save_screenshot(location)
+                        driver.get_screenshot_as_file(location)
 
                     if action_item[i] == "getTitle":
 
                         temp = driver.title()
-                        driver.save_screenshot(location)
+                        driver.get_screenshot_as_file(location)
                     
                     if action_item[i] == "Clear":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
-                        driver.save_screenshot(location)
+                        driver.get_screenshot_as_file(location)
 
 
             #this is used to store the source of the page as a string
