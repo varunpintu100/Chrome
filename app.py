@@ -30,7 +30,7 @@ def input_count():
 @app.route("/browser",methods=["POST"])
 def browser():
 
-    # browser_name = request.form.get('browsers')
+    browser_name = request.form.get('browsers')
     # list_of_files = os.listdir(os.getcwd())
     # for each_file in list_of_files:
     #     if each_file.startswith("ScreenShots"):
