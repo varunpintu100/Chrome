@@ -4,11 +4,9 @@ function yesnoCheck() {
     data = document.getElementsByName("Input_text_1");
     for(i=0;i<test.length;i++)
     {
-    if (test[i].value == "Input") {
+    if (test[i].value == "Input" && data[i].style.display != "block") {
     alert("This field is to send data");
         data[i].style.display = "block";
-    } else {
-        data[i].style.display = "none";
     }
 }
 }

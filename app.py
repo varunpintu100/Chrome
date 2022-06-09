@@ -39,8 +39,6 @@ def browser():
     #             os.remove(file)
     #this medthod is used to try and find the exceptions if needed.
     try:
-        location = "../ScreenShots/image"+".png"
-        driver.save_screenshot(location)
         #this is the condition used to check the data whether the name of the browser is correct or not
         if browser_name=='chrome':
 
@@ -68,7 +66,7 @@ def browser():
             driver.get(url)
             j=0
             for i in range(0,len(action_item)):
-                location = "../ScreenShots/image_"+str(i)+".png"
+                location = "image_"+str(i)+".png"
                 if xpath[i]!="":
             #this is used to perform the action item and based on the if condition respective action will happen
                     if action_item[i] == "click":
@@ -81,22 +79,28 @@ def browser():
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
+                        driver.save_screenshot(location)
+
                     if action_item[i] == "Input":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
                         j=j+1
-                    
+                        driver.save_screenshot(location)
+
                     if action_item[i] == "Enter":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
+                        driver.save_screenshot(location)
 
                     if action_item[i] == "getTitle":
 
                         temp = driver.title()
+                        driver.save_screenshot(location)
                     
                     if action_item[i] == "Clear":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
+                        driver.save_screenshot(location)
 
             #this is used to store the source of the page as a string
             driver.quit()
