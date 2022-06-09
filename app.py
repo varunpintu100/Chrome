@@ -59,9 +59,7 @@ def browser():
 
             input_data = request.form.getlist("Input_text")
             #this is o get the url in the console
-            print(url)
-            print(action_item)
-            print(xpath)
+            print(f"The given URL is : {url}")
 #this is used to navigate to the respected url
             driver.get(url)
             j=0
@@ -101,6 +99,7 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
                         driver.save_screenshot(location)
+
 
             #this is used to store the source of the page as a string
             driver.quit()
