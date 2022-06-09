@@ -3,7 +3,7 @@ from flask import Flask,render_template,request
 #these are the imports for selenium
 from driv import Chrome
 from selenium.webdriver.common.keys import Keys
-import os
+import PIL as Image
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
@@ -64,8 +64,7 @@ def browser():
             driver.get(url)
             j=0
             for i in range(0,len(action_item)):
-                loc = os.path.join(app.root_path, app.config['ScreenShots'])
-                location = loc+"/image_"+str(i)+".png"
+                location = "/image_"+str(i)+".png"
                 if xpath[i]!="":
             #this is used to perform the action item and based on the if condition respective action will happen
                     if action_item[i] == "click":
@@ -74,11 +73,19 @@ def browser():
 
                         driver.get_screenshot_as_file(location)
 
+                        image = Image.open(location)
+
+                        image.show()
+
                     if action_item[i] == "getText":
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
                         driver.get_screenshot_as_file(location)
+
+                        image = Image.open(location)
+
+                        image.show()
 
                     if action_item[i] == "Input":
 
@@ -86,21 +93,36 @@ def browser():
                         j=j+1
                         driver.get_screenshot_as_file(location)
 
+                        image = Image.open(location)
+
+                        image.show()
+
                     if action_item[i] == "Enter":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
                         driver.get_screenshot_as_file(location)
 
+                        image = Image.open(location)
+
+                        image.show()
+
                     if action_item[i] == "getTitle":
 
                         temp = driver.title()
                         driver.get_screenshot_as_file(location)
+
+                        image = Image.open(location)
+
+                        image.show()
                     
                     if action_item[i] == "Clear":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
                         driver.get_screenshot_as_file(location)
 
+                        image = Image.open(location)
+
+                        image.show()
 
             #this is used to store the source of the page as a string
             driver.quit()
