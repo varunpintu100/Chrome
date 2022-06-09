@@ -39,6 +39,8 @@ def browser():
     #             os.remove(file)
     #this medthod is used to try and find the exceptions if needed.
     try:
+        location = "../ScreenShots/image"+".png"
+        driver.save_screenshot(location)
         #this is the condition used to check the data whether the name of the browser is correct or not
         if browser_name=='chrome':
 
