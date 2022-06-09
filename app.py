@@ -3,7 +3,7 @@ from flask import Flask,render_template,request
 #these are the imports for selenium
 from driv import Chrome
 from selenium.webdriver.common.keys import Keys
-
+import os
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ global driver
 
 data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 
-actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':'Enter'}]
+actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':'Enter'},{'action':'getTitle'},{'action':'Clear'}]
 
 #this is used to create the page
 @app.route("/")
@@ -29,9 +29,15 @@ def input_count():
 
 @app.route("/browser",methods=["POST"])
 def browser():
-    #this medthod is used to try and find the exceptions if needed.
-    browser_name = request.form.get('browsers')
 
+    # browser_name = request.form.get('browsers')
+    # list_of_files = os.listdir(os.getcwd())
+    # for each_file in list_of_files:
+    #     if each_file.startswith("ScreenShots"):
+    #         for file in each_file:
+    #             print(file)
+    #             os.remove(file)
+    #this medthod is used to try and find the exceptions if needed.
     try:
         #this is the condition used to check the data whether the name of the browser is correct or not
         if browser_name=='chrome':
@@ -60,11 +66,14 @@ def browser():
             driver.get(url)
             j=0
             for i in range(0,len(action_item)):
+                location = "../ScreenShots/image_"+i+".png"
                 if xpath[i]!="":
             #this is used to perform the action item and based on the if condition respective action will happen
                     if action_item[i] == "click":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
+
+                        driver.save_screenshot(location)
 
                     if action_item[i] == "getText":
 
@@ -79,13 +88,20 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
 
+                    if action_item[i] == "getTitle":
+
+                        temp = driver.title()
+                    
+                    if action_item[i] == "Clear":
+
+                        driver.find_element_by_xpath(xpath=xpath[i]).clear()
+
             #this is used to store the source of the page as a string
-            source = str(driver.page_source)
             driver.quit()
             #this is used to check weather we are getting any text if no text is found then it returns the webpage source
             if temp=="":
-                return source,200
-            return temp
+                return {"message":"All tests are passed"},200
+            return {"message":f"The data we got is {temp}"},200
         return browser_name
 #this is used to quit the driver when some exception occurs all of a sudden.
     except Exception as e:
