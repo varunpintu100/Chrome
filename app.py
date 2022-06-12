@@ -64,16 +64,16 @@ def browser():
             driver.get(url)
             j=0
             for i in range(0,len(action_item)):
-                location = "/image_"+str(i)+".png"
+                location = "image_"+str(i)+".png"
                 if xpath[i]!="":
             #this is used to perform the action item and based on the if condition respective action will happen
                     if action_item[i] == "click":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
 
-                        test = driver.save_screenshot(location)
+                        driver.save_screenshot(location)
 
-                        image = PIL.Image.open(test)
+                        image = PIL.Image.open(location)
 
                         image.show()
 
@@ -81,9 +81,9 @@ def browser():
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
-                        test = driver.save_screenshot(location)
+                        driver.save_screenshot(location)
 
-                        image = PIL.Image.open(test)
+                        image = PIL.Image.open(location)
 
                         image.show()
 
@@ -100,27 +100,27 @@ def browser():
                     if action_item[i] == "Enter":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
-                        test = driver.save_screenshot(location)
+                        driver.save_screenshot(location)
 
-                        image = PIL.Image.open(test)
+                        image = PIL.Image.open(location)
 
                         image.show()
 
                     if action_item[i] == "getTitle":
 
                         temp = driver.title()
-                        test = driver.save_screenshot(location)
+                        driver.save_screenshot(location)
 
-                        image = PIL.Image.open(test)
+                        image = PIL.Image.open(location)
 
                         image.show()
                     
                     if action_item[i] == "Clear":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
-                        test = driver.save_screenshot(location)
+                        driver.save_screenshot(location)
 
-                        image = PIL.Image.open(test)
+                        image = PIL.Image.open(location)
 
                         image.show()
 
