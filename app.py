@@ -39,6 +39,7 @@ def browser():
     #             os.remove(file)
     #this medthod is used to try and find the exceptions if needed.
     try:
+        lt=[]
         #this is the condition used to check the data whether the name of the browser is correct or not
         if browser_name=='chrome':
 
@@ -71,64 +72,76 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
 
-                        driver.save_screenshot(location)
+                        driver.save_screenshot_as_file(location)
 
                         image = PIL.Image.open(location)
 
                         image.show()
+
+                        lt.append({"click":xpath[i]})
 
                     if action_item[i] == "getText":
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
-                        driver.save_screenshot(location)
+                        driver.save_screenshot_as_file(location)
 
                         image = PIL.Image.open(location)
 
                         image.show()
+
+                        lt.append({"getText":xpath[i] + "--" + temp})
 
                     if action_item[i] == "Input":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
                         j=j+1
-                        driver.save_screenshot(location)
+                        driver.save_screenshot_as_file(location)
 
                         image = PIL.Image.open(location)
 
                         image.show()
+
+                        lt.append({"Input":xpath[i] +"--"+ input_data[j]})
 
                     if action_item[i] == "Enter":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
-                        driver.save_screenshot(location)
+                        driver.save_screenshot_as_file(location)
 
                         image = PIL.Image.open(location)
 
                         image.show()
+
+                        lt.append({"Enter":xpath[i]})
 
                     if action_item[i] == "getTitle":
 
                         temp = driver.title()
-                        driver.save_screenshot(location)
+                        driver.save_screenshot_as_file(location)
 
                         image = PIL.Image.open(location)
 
                         image.show()
+
+                        lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
                     if action_item[i] == "Clear":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
-                        driver.save_screenshot(location)
+                        driver.save_screenshot_as_file(location)
 
                         image = PIL.Image.open(location)
 
                         image.show()
+
+                        lt.append({"Clear":xpath[i]})
 
             #this is used to store the source of the page as a string
             driver.quit()
             #this is used to check weather we are getting any text if no text is found then it returns the webpage source
             if temp=="":
-                return {"message":"All tests are passed"},200
+                return {"message":lt},200
             return {"message":f"The data we got is {temp}"},200
         return browser_name
 #this is used to quit the driver when some exception occurs all of a sudden.
