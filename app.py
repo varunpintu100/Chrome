@@ -102,7 +102,7 @@ def browser():
 
                         image.show()
 
-                        lt.append({"Input":xpath[i] +"--"+ input_data[j]})
+                        lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
                     if action_item[i] == "Enter":
 
