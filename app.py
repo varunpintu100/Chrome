@@ -3,7 +3,6 @@ from flask import Flask,render_template,request
 #these are the imports for selenium
 from driv import Chrome
 from selenium.webdriver.common.keys import Keys
-import PIL.Image
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
@@ -74,9 +73,6 @@ def browser():
 
                         driver.get_screenshot_as_file(location)
 
-                        image = PIL.Image.open(location)
-
-                        image.show()
 
                         lt.append({"click":xpath[i]})
 
@@ -86,9 +82,6 @@ def browser():
 
                         driver.get_screenshot_as_file(location)
 
-                        image = PIL.Image.open(location)
-
-                        image.show()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
@@ -98,9 +91,6 @@ def browser():
                         j=j+1
                         driver.get_screenshot_as_file(location)
 
-                        image = PIL.Image.open(location)
-
-                        image.show()
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
@@ -109,9 +99,6 @@ def browser():
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
                         driver.get_screenshot_as_file(location)
 
-                        image = PIL.Image.open(location)
-
-                        image.show()
 
                         lt.append({"Enter":xpath[i]})
 
@@ -120,9 +107,6 @@ def browser():
                         temp = driver.title()
                         driver.get_screenshot_as_file(location)
 
-                        image = PIL.Image.open(location)
-
-                        image.show()
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
@@ -131,9 +115,6 @@ def browser():
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
                         driver.get_screenshot_as_file(location)
 
-                        image = PIL.Image.open(location)
-
-                        image.show()
 
                         lt.append({"Clear":xpath[i]})
 
