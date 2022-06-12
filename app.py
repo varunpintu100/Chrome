@@ -9,14 +9,6 @@ Copyright(c) PROJECTCODE. All rights reserved.
 
 
 
-
-
-
-
-
-
-
-
 #these are the imports for flask
 from flask import Flask,render_template,request
 #these are the imports for selenium
