@@ -8,6 +8,11 @@ function yesnoCheck() {
     alert("This field is to send data");
         data[i].style.display = "block";
     }
+    if (test[i].value != "Input" && data[i].style.display == "block")
+    {
+        alert("The Input field is changed");
+        data[i].style.display = "none";
+    }
 }
 }
 function display_c(){
