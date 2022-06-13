@@ -6,8 +6,6 @@ Copyright(c) PROJECTCODE. All rights reserved.
 
 '''
 
-
-from PIL import Image
 from Screenshot import Screenshot_Clipping
 #these are the imports for flask
 from flask import Flask,render_template,request
@@ -86,10 +84,6 @@ def browser():
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
-
-                        screen = Image.open(image_url)
-                        screen.show()
-
                         lt.append({"click":xpath[i]})
 
                     if action_item[i] == "getText":
@@ -97,9 +91,6 @@ def browser():
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
-
-                        screen = Image.open(image_url)
-                        screen.show()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
@@ -109,9 +100,6 @@ def browser():
                         j=j+1
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
-                        screen = Image.open(image_url)
-                        screen.show()
-
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
                     if action_item[i] == "Enter":
@@ -119,18 +107,12 @@ def browser():
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
-                        screen = Image.open(image_url)
-                        screen.show()
-
                         lt.append({"Enter":xpath[i]})
 
                     if action_item[i] == "getTitle":
 
                         temp = driver.title()
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
-                       
-                        screen = Image.open(image_url)
-                        screen.show()
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
@@ -138,9 +120,6 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
-
-                        screen = Image.open(image_url)
-                        screen.show()
 
                         lt.append({"Clear":xpath[i]})
 
