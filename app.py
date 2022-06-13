@@ -92,7 +92,7 @@ def browser():
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
-                        image_url=ob.full_Screenshot(driver,save_path=r'../Screenshots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=r'../ScreenShots/',image_name=location)
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
@@ -100,28 +100,28 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
                         j=j+1
-                        image_url=ob.full_Screenshot(driver,save_path=r'../Screenshots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=r'../ScreenShots/',image_name=location)
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
                     if action_item[i] == "Enter":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
-                        image_url=ob.full_Screenshot(driver,save_path=r'../Screenshots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=r'../ScreenShots/',image_name=location)
 
                         lt.append({"Enter":xpath[i]})
 
                     if action_item[i] == "getTitle":
 
                         temp = driver.title()
-                        image_url=ob.full_Screenshot(driver,save_path=r'../Screenshots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=r'../ScreenShots/',image_name=location)
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
                     if action_item[i] == "Clear":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
-                        image_url=ob.full_Screenshot(driver,save_path=r'../Screenshots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=r'../ScreenShots/',image_name=location)
 
                         lt.append({"Clear":xpath[i]})
 
