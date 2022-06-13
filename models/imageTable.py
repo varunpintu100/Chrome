@@ -9,7 +9,6 @@ class IMG(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     img=db.Column(db.Text,unique=True,nullable=False)
     Xpath=db.Column(db.Text,nullable=False)
-    mimeType=db.Column(db.Text,nullable=False)
     Name=db.Column(db.Text,nullable=False)
 
     def save_to_db(self):
