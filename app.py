@@ -6,14 +6,24 @@ Copyright(c) PROJECTCODE. All rights reserved.
 
 '''
 
+import os
 from Screenshot import Screenshot_Clipping
 #these are the imports for flask
 from flask import Flask,render_template,request
 #these are the imports for selenium
 from driv import Chrome
 from selenium.webdriver.common.keys import Keys
+from models.imageTable import IMG
 #this is the step used to declare the flask app
 app = Flask(__name__)
+
+
+uri = os.environ.get("DATABASE_URL","sqlite:///data.db")
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+
+app.config['SQLALCHEMY_DATABASE_URI']=uri
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 #this is used the security key
 app.secret_key='Varun'
@@ -83,6 +93,9 @@ def browser():
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
+                        mimetype = image_url.mimetype
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img.save_to_db()
 
                         lt.append({"click":xpath[i]})
 
@@ -92,20 +105,34 @@ def browser():
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
+                        mimetype = image_url.mimetype
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img.save_to_db()
+
                         lt.append({"getText":xpath[i] + "--" + temp})
 
                     if action_item[i] == "Input":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
                         j=j+1
+
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
+
+                        mimetype = image_url.mimetype
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img.save_to_db()
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
                     if action_item[i] == "Enter":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
+
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
+
+                        mimetype = image_url.mimetype
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img.save_to_db()
 
                         lt.append({"Enter":xpath[i]})
 
@@ -114,12 +141,20 @@ def browser():
                         temp = driver.title()
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
+                        mimetype = image_url.mimetype
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img.save_to_db()
+
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
                     if action_item[i] == "Clear":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
+
+                        mimetype = image_url.mimetype
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img.save_to_db()
 
                         lt.append({"Clear":xpath[i]})
 
