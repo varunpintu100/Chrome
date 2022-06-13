@@ -86,7 +86,7 @@ def browser():
             driver.get(url)
             j=0
             for i in range(0,len(action_item)):
-                location = "image_"+str(i)+".png"
+                location = "image_"+str(i)+".jpeg"
                 if xpath[i]!="":
             #this is used to perform the action item and based on the if condition respective action will happen
                     if action_item[i] == "click":
