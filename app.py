@@ -84,7 +84,7 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
 
-                        image_url=ob.full_Screenshot(driver,save_path=r'../Screenshots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=r'../ScreenShots/',image_name=location)
 
                         lt.append({"click":xpath[i]})
 
