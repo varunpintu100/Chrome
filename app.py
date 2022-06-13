@@ -95,8 +95,8 @@ def browser():
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
                         img = Image.open(image_url)
-                        img = IMG(img=img.read(),Xpath=xpath[i],Name=location)
-                        img.save_to_db()
+                        image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"click":xpath[i]})
 
@@ -106,8 +106,8 @@ def browser():
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
                         img = Image.open(image_url)
-                        img = IMG(img=img.read(),Xpath=xpath[i],Name=location)
-                        img.save_to_db()
+                        image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
@@ -119,8 +119,8 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         img = Image.open(image_url)
-                        img = IMG(img=img.read(),Xpath=xpath[i],Name=location)
-                        img.save_to_db()
+                        image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
@@ -131,8 +131,8 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         img = Image.open(image_url)
-                        img = IMG(img=img.read(),Xpath=xpath[i],Name=location)
-                        img.save_to_db()
+                        image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"Enter":xpath[i]})
 
@@ -142,8 +142,8 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         img = Image.open(image_url)
-                        img = IMG(img=img.read(),Xpath=xpath[i],Name=location)
-                        img.save_to_db()
+                        image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
@@ -153,8 +153,8 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         img = Image.open(image_url)
-                        img = IMG(img=img.read(),Xpath=xpath[i],Name=location)
-                        img.save_to_db()
+                        image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"Clear":xpath[i]})
 
