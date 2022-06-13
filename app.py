@@ -94,7 +94,7 @@ def browser():
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
                         mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"click":xpath[i]})
@@ -106,7 +106,7 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
@@ -119,7 +119,7 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
@@ -131,7 +131,7 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"Enter":xpath[i]})
@@ -142,7 +142,7 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
@@ -153,7 +153,7 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimetype=mimetype,Name=location)
+                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"Clear":xpath[i]})
@@ -173,4 +173,6 @@ def browser():
 
 
 if __name__=='__main__':
+    from database import db  # we are importing this as a part of circular imports
+    db.init_app(app)
     app.run(port=5000,debug=True)
