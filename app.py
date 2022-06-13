@@ -14,6 +14,7 @@ from flask import Flask,render_template,request
 from driv import Chrome
 from selenium.webdriver.common.keys import Keys
 from models.imageTable import IMG
+from PIL import Image
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
@@ -93,8 +94,9 @@ def browser():
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
-                        mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
+                        img = Image.open(image_url)
+                        mimetype = img.mimetype
+                        img = IMG(img=img.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"click":xpath[i]})
@@ -104,9 +106,9 @@ def browser():
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
-
-                        mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
+                        img = Image.open(image_url)
+                        mimetype = img.mimetype
+                        img = IMG(img=img.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
@@ -118,8 +120,9 @@ def browser():
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
-                        mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
+                        img = Image.open(image_url)
+                        mimetype = img.mimetype
+                        img = IMG(img=img.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
@@ -130,8 +133,9 @@ def browser():
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
-                        mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
+                        img = Image.open(image_url)
+                        mimetype = img.mimetype
+                        img = IMG(img=img.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"Enter":xpath[i]})
@@ -141,8 +145,9 @@ def browser():
                         temp = driver.title()
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
-                        mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
+                        img = Image.open(image_url)
+                        mimetype = img.mimetype
+                        img = IMG(img=img.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
@@ -152,8 +157,9 @@ def browser():
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
-                        mimetype = image_url.mimetype
-                        img = IMG(img=image_url.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
+                        img = Image.open(image_url)
+                        mimetype = img.mimetype
+                        img = IMG(img=img.read(),Xpath=xpath[i],mimeType=mimetype,Name=location)
                         img.save_to_db()
 
                         lt.append({"Clear":xpath[i]})
