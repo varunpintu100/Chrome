@@ -23,8 +23,10 @@ uri = os.environ.get("DATABASE_URL","sqlite:///data.db")
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 
+UPLOAD_FOLDER='./ScreenShots'
 app.config['SQLALCHEMY_DATABASE_URI']=uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
 
 #this is used the security key
 app.secret_key='Varun'
@@ -95,8 +97,9 @@ def browser():
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
                         img = Image.open(image_url)
-                        image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        # image.save_to_db()
 
                         lt.append({"click":xpath[i]})
 
@@ -106,8 +109,9 @@ def browser():
 
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
                         img = Image.open(image_url)
-                        image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        # image.save_to_db()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
@@ -119,8 +123,9 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         img = Image.open(image_url)
-                        image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        # image.save_to_db()
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
@@ -131,8 +136,9 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         img = Image.open(image_url)
-                        image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        # image.save_to_db()
 
                         lt.append({"Enter":xpath[i]})
 
@@ -142,8 +148,9 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         img = Image.open(image_url)
-                        image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        # image.save_to_db()
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
@@ -153,8 +160,9 @@ def browser():
                         image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
 
                         img = Image.open(image_url)
-                        image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
+                        # image.save_to_db()
 
                         lt.append({"Clear":xpath[i]})
 
