@@ -5,7 +5,7 @@ Copyright(c) PROJECTCODE. All rights reserved.
 </copyright>
 
 '''
-
+import traceback
 import os
 #these are the imports for flask
 from flask import Flask,render_template,request
@@ -177,8 +177,8 @@ def browser():
 #this is used to quit the driver when some exception occurs all of a sudden.
     except Exception as e:
         driver.quit()
-
-        return {"message":f"Exception{e}"}
+        
+        return {"message":f"Exception{e}{traceback.print_exc()}"}
 
 
 if __name__=='__main__':
