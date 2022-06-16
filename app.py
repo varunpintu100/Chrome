@@ -16,7 +16,7 @@ from models.imageTable import IMG
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
-
+parentdirectory=(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
 uri = os.environ.get("DATABASE_URL","sqlite:///data.db")
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
@@ -89,7 +89,15 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
                         
-                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
+                        driver.get_screenshot_as_file(parentdirectory+'/ScreenShots/'+location)
+
+                        fp = open(parentdirectory+'/ScreenShots/'+location,'r')
+
+                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+
+                        img.save_to_db()
+
+                        fp.close()
 
                         lt.append({"click":xpath[i]})
 
@@ -97,7 +105,13 @@ def browser():
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
-                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
+                        fp = open(parentdirectory+'/ScreenShots/'+location,'r')
+
+                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+
+                        img.save_to_db()
+
+                        fp.close()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
@@ -106,15 +120,31 @@ def browser():
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
                         j=j+1
                         
-                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
+                        driver.get_screenshot_as_file(parentdirectory+'/ScreenShots/'+location)
 
+                        fp = open(parentdirectory+'/ScreenShots/'+location,'r')
+
+                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+
+                        img.save_to_db()
+
+                        fp.close()
+                        
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
                     if action_item[i] == "Enter":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
 
-                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
+                        driver.get_screenshot_as_file(parentdirectory+'/ScreenShots/'+location)
+
+                        fp = open(parentdirectory+'/ScreenShots/'+location,'r')
+
+                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+
+                        img.save_to_db()
+
+                        fp.close()
 
                         lt.append({"Enter":xpath[i]})
 
@@ -122,7 +152,15 @@ def browser():
 
                         temp = driver.title()
                         
-                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
+                        driver.get_screenshot_as_file(parentdirectory+'/ScreenShots/'+location)
+
+                        fp = open(parentdirectory+'/ScreenShots/'+location,'r')
+
+                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+
+                        img.save_to_db()
+
+                        fp.close()
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
@@ -130,7 +168,15 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
                         
-                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
+                        driver.get_screenshot_as_file(parentdirectory+'/ScreenShots/'+location)
+
+                        fp = open(parentdirectory+'/ScreenShots/'+location,'r')
+
+                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+
+                        img.save_to_db()
+
+                        fp.close()
 
                         lt.append({"Clear":xpath[i]})
 
