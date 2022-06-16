@@ -7,7 +7,6 @@ Copyright(c) PROJECTCODE. All rights reserved.
 '''
 
 import os
-from Screenshot import Screenshot_Clipping
 #these are the imports for flask
 from flask import Flask,render_template,request
 #these are the imports for selenium
@@ -35,8 +34,6 @@ global driver
 data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 
 actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':'Enter'},{'action':'getTitle'},{'action':'Clear'}]
-
-ob=Screenshot_Clipping.Screenshot()
 
 #this is used to create the page
 @app.route("/")
