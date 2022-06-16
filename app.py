@@ -23,7 +23,7 @@ uri = os.environ.get("DATABASE_URL","sqlite:///data.db")
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 
-UPLOAD_FOLDER='./ScreenShots'
+UPLOAD_FOLDER=os.path.join(os.getcwd,'./ScreenShots')
 app.config['SQLALCHEMY_DATABASE_URI']=uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
@@ -95,7 +95,7 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
 
-                        image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
                         img = Image.open(image_url)
                         img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
                         # image = IMG(img=img,Xpath=xpath[i],Name=location)
@@ -107,7 +107,7 @@ def browser():
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
-                        image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
                         img = Image.open(image_url)
                         img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
                         # image = IMG(img=img,Xpath=xpath[i],Name=location)
@@ -120,7 +120,7 @@ def browser():
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
                         j=j+1
 
-                        image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
 
                         img = Image.open(image_url)
                         img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
@@ -133,7 +133,7 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
 
-                        image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
 
                         img = Image.open(image_url)
                         img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
@@ -145,7 +145,7 @@ def browser():
                     if action_item[i] == "getTitle":
 
                         temp = driver.title()
-                        image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
 
                         img = Image.open(image_url)
                         img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
@@ -157,7 +157,7 @@ def browser():
                     if action_item[i] == "Clear":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
-                        image_url=ob.full_Screenshot(driver,save_path=r'./ScreenShots/',image_name=location)
+                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
 
                         img = Image.open(image_url)
                         img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
