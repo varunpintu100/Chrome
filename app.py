@@ -13,7 +13,6 @@ from flask import Flask,render_template,request
 from driv import Chrome
 from selenium.webdriver.common.keys import Keys
 from models.imageTable import IMG
-import pyscreenshot
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
@@ -83,19 +82,14 @@ def browser():
             driver.get(url)
             j=0
             for i in range(0,len(action_item)):
-                location = "image_"+str(i)+".jpeg"
+                location = "image_"+str(i)+".png"
                 if xpath[i]!="":
             #this is used to perform the action item and based on the if condition respective action will happen
                     if action_item[i] == "click":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
-
-                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
-                        # img = Image.open(image_url)
-                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        image = pyscreenshot.grab()
-                        image = IMG(img=image.read(),Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        
+                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
 
                         lt.append({"click":xpath[i]})
 
@@ -103,12 +97,7 @@ def browser():
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
-                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
-                        # img = Image.open(image_url)
-                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        image = pyscreenshot.grab()
-                        image = IMG(img=image.read(),Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
@@ -117,13 +106,7 @@ def browser():
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
                         j=j+1
                         
-                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
-
-                        # img = Image.open(image_url)
-                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        image = pyscreenshot.grab()
-                        image = IMG(img=image.read(),Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
@@ -131,39 +114,23 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
 
-                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
-
-                        # img = Image.open(image_url)
-                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        image = pyscreenshot.grab()
-                        image = IMG(img=image.read(),Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
 
                         lt.append({"Enter":xpath[i]})
 
                     if action_item[i] == "getTitle":
 
                         temp = driver.title()
-                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
-
-                        # img = Image.open(image_url)
-                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        image = pyscreenshot.grab()
-                        image = IMG(img=image.read(),Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        
+                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
                     if action_item[i] == "Clear":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
-                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
-
-                        # img = Image.open(image_url)
-                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        image = pyscreenshot.grab()
-                        image = IMG(img=image.read(),Xpath=xpath[i],Name=location)
-                        image.save_to_db()
+                        
+                        driver.get_screenshot_as_file(os.getcwd()+'./ScreenShots/'+location)
 
                         lt.append({"Clear":xpath[i]})
 
