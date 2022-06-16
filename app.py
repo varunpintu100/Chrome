@@ -23,7 +23,8 @@ uri = os.environ.get("DATABASE_URL","sqlite:///data.db")
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 cwd=os.getcwd()
-UPLOAD_FOLDER=os.path.join(cwd,'/ScreenShots/')
+parent=os.path.abspath(os.path.join(cwd, os.pardir))
+UPLOAD_FOLDER=os.path.join(parent,'ScreenShots/')
 app.config['SQLALCHEMY_DATABASE_URI']=uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
