@@ -23,7 +23,7 @@ uri = os.environ.get("DATABASE_URL","sqlite:///data.db")
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 
-UPLOAD_FOLDER=os.path.join(os.getcwd,'./ScreenShots')
+UPLOAD_FOLDER=os.path.join(os.getcwd,'./ScreenShots/')
 app.config['SQLALCHEMY_DATABASE_URI']=uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
@@ -43,12 +43,12 @@ ob=Screenshot_Clipping.Screenshot()
 #this is used to create the page
 @app.route("/")
 def select_browsers():
-        return render_template('index.html',data=data,actions=actions,test=0)
+        return render_template('index.html',data=data,actions=actions,test=0,directory=UPLOAD_FOLDER)
 
 @app.route("/count",methods=["POST"])
 def input_count():
     count = int(request.form['number_input'])
-    return render_template('index.html',data=data,actions=actions,test=count)
+    return render_template('index.html',data=data,actions=actions,test=count,directory=UPLOAD_FOLDER)
 
 @app.route("/browser",methods=["POST"])
 def browser():
