@@ -14,7 +14,7 @@ from flask import Flask,render_template,request
 from driv import Chrome
 from selenium.webdriver.common.keys import Keys
 from models.imageTable import IMG
-from PIL import Image
+import pyscreenshot
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
@@ -22,12 +22,9 @@ app = Flask(__name__)
 uri = os.environ.get("DATABASE_URL","sqlite:///data.db")
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
-cwd=os.getcwd()
-parent=os.path.abspath(os.path.join(cwd, os.pardir))
-UPLOAD_FOLDER=os.path.join(parent,'ScreenShots/')
+
 app.config['SQLALCHEMY_DATABASE_URI']=uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
-app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
 
 #this is used the security key
 app.secret_key='Varun'
@@ -44,15 +41,12 @@ ob=Screenshot_Clipping.Screenshot()
 #this is used to create the page
 @app.route("/")
 def select_browsers():
-    print(cwd)
-    print("Parent Directory")
-    print(os.path.abspath(os.path.join(cwd, os.pardir)))
-    return render_template('index.html',data=data,actions=actions,test=0,directory=UPLOAD_FOLDER)
+    return render_template('index.html',data=data,actions=actions,test=0)
 
 @app.route("/count",methods=["POST"])
 def input_count():
     count = int(request.form['number_input'])
-    return render_template('index.html',data=data,actions=actions,test=count,directory=UPLOAD_FOLDER)
+    return render_template('index.html',data=data,actions=actions,test=count)
 
 @app.route("/browser",methods=["POST"])
 def browser():
@@ -99,11 +93,12 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
 
-                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
-                        img = Image.open(image_url)
-                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        # image.save_to_db()
+                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
+                        # img = Image.open(image_url)
+                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        image = pyscreenshot.grab()
+                        image = IMG(img=image,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"click":xpath[i]})
 
@@ -111,11 +106,12 @@ def browser():
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
 
-                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
-                        img = Image.open(image_url)
-                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        # image.save_to_db()
+                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
+                        # img = Image.open(image_url)
+                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        image = pyscreenshot.grab()
+                        image = IMG(img=image,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
@@ -123,13 +119,14 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
                         j=j+1
+                        
+                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
 
-                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
-
-                        img = Image.open(image_url)
-                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        # image.save_to_db()
+                        # img = Image.open(image_url)
+                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        image = pyscreenshot.grab()
+                        image = IMG(img=image,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
@@ -137,36 +134,39 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
 
-                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
+                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
 
-                        img = Image.open(image_url)
-                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        # image.save_to_db()
+                        # img = Image.open(image_url)
+                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        image = pyscreenshot.grab()
+                        image = IMG(img=image,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"Enter":xpath[i]})
 
                     if action_item[i] == "getTitle":
 
                         temp = driver.title()
-                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
+                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
 
-                        img = Image.open(image_url)
-                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        # image.save_to_db()
+                        # img = Image.open(image_url)
+                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        image = pyscreenshot.grab()
+                        image = IMG(img=image,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
                     if action_item[i] == "Clear":
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
-                        image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
+                        # image_url=ob.full_Screenshot(driver,save_path=UPLOAD_FOLDER,image_name=location)
 
-                        img = Image.open(image_url)
-                        img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
-                        # image = IMG(img=img,Xpath=xpath[i],Name=location)
-                        # image.save_to_db()
+                        # img = Image.open(image_url)
+                        # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
+                        image = pyscreenshot.grab()
+                        image = IMG(img=image,Xpath=xpath[i],Name=location)
+                        image.save_to_db()
 
                         lt.append({"Clear":xpath[i]})
 
