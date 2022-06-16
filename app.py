@@ -43,7 +43,8 @@ ob=Screenshot_Clipping.Screenshot()
 #this is used to create the page
 @app.route("/")
 def select_browsers():
-        return render_template('index.html',data=data,actions=actions,test=0,directory=UPLOAD_FOLDER)
+    print(cwd)
+    return render_template('index.html',data=data,actions=actions,test=0,directory=UPLOAD_FOLDER)
 
 @app.route("/count",methods=["POST"])
 def input_count():
