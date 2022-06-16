@@ -107,7 +107,7 @@ def browser():
                         # img = Image.open(image_url)
                         # img.save(os.path.join(app.config['UPLOAD_FOLDER'],location))
                         image = pyscreenshot.grab()
-                        image = IMG(img=image,Xpath=xpath[i],Name=location)
+                        image = IMG(img=image.read(),Xpath=xpath[i],Name=location)
                         image.save_to_db()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
