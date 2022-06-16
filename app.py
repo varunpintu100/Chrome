@@ -89,7 +89,7 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).click()
                         
-                        driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location)
+                        print(driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location))
 
                         fp = open(parentdirectory+'ScreenShots/'+location,'r')
 
@@ -104,6 +104,8 @@ def browser():
                     if action_item[i] == "getText":
 
                         temp = driver.find_element_by_xpath(xpath=xpath[i]).text
+                        
+                        print(driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location))
 
                         fp = open(parentdirectory+'ScreenShots/'+location,'r')
 
@@ -120,7 +122,7 @@ def browser():
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
                         j=j+1
                         
-                        driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location)
+                        print(driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location))
 
                         fp = open(parentdirectory+'ScreenShots/'+location,'r')
 
@@ -136,7 +138,7 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
 
-                        driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location)
+                        print(driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location))
 
                         fp = open(parentdirectory+'ScreenShots/'+location,'r')
 
@@ -152,7 +154,7 @@ def browser():
 
                         temp = driver.title()
                         
-                        driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location)
+                        print(driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location))
 
                         fp = open(parentdirectory+'ScreenShots/'+location,'r')
 
@@ -168,7 +170,7 @@ def browser():
 
                         driver.find_element_by_xpath(xpath=xpath[i]).clear()
                         
-                        driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location)
+                        print(driver.get_screenshot_as_file(parentdirectory+'ScreenShots/'+location))
 
                         fp = open(parentdirectory+'ScreenShots/'+location,'r')
 
