@@ -44,6 +44,8 @@ ob=Screenshot_Clipping.Screenshot()
 @app.route("/")
 def select_browsers():
     print(cwd)
+    print("Parent Directory")
+    print(os.path.abspath(os.path.join(cwd, os.pardir)))
     return render_template('index.html',data=data,actions=actions,test=0,directory=UPLOAD_FOLDER)
 
 @app.route("/count",methods=["POST"])
