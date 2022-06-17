@@ -5,6 +5,8 @@ Copyright(c) PROJECTCODE. All rights reserved.
 </copyright>
 
 '''
+
+
 import mimetypes
 import traceback
 import os
@@ -17,7 +19,7 @@ from models.imageTable import IMG
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
-parentdirectory=(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+
 uri = os.environ.get("DATABASE_URL","sqlite:///data.db")
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)

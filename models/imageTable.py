@@ -1,12 +1,12 @@
 from database import db
 
-
 class IMG(db.Model):
+
     __tablename__='Images'
 
     #We are creating the coloumns for the table in the database
 
-    id=db.Column(db.Integer)
+    id=db.Column(db.Integer,nullable=False)
     img=db.Column(db.Text,unique=True,nullable=False)
     mimetype=db.Column(db.Text,nullable=False)
     Xpath=db.Column(db.Text,nullable=False)
