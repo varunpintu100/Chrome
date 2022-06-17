@@ -93,11 +93,11 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8",errors='replace')
 
                         mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -111,9 +111,9 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'rb',encoding="utf8",errors='replace')
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
                         img.save_to_db()
 
@@ -128,11 +128,11 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8",errors='replace')
 
                         mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
                         img.save_to_db()
 
@@ -146,11 +146,11 @@ def browser():
 
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8",errors='replace')
 
                         mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
                         img.save_to_db()
 
@@ -164,11 +164,11 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8",errors='replace')
 
                         mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
                         img.save_to_db()
 
@@ -182,11 +182,11 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8",errors='replace')
 
                         mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
                         img.save_to_db()
 
