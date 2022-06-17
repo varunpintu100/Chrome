@@ -91,7 +91,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8")
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
 
@@ -107,7 +107,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8")
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
 
@@ -124,7 +124,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8")
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
 
@@ -140,7 +140,7 @@ def browser():
 
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8")
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
 
@@ -156,7 +156,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8")
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
 
@@ -172,7 +172,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r')
+                        fp = open(location,'r',encoding="utf8")
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
 
