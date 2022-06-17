@@ -93,9 +93,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
-
-                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
@@ -111,9 +109,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
-
-                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
@@ -130,9 +126,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
-
-                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
@@ -148,9 +142,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
-
-                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
@@ -166,9 +158,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
-
-                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
@@ -184,9 +174,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
-
-                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
