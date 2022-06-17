@@ -94,7 +94,7 @@ def browser():
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
@@ -111,7 +111,7 @@ def browser():
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
@@ -128,7 +128,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
@@ -145,7 +145,7 @@ def browser():
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
@@ -162,7 +162,7 @@ def browser():
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
@@ -179,7 +179,7 @@ def browser():
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
 
