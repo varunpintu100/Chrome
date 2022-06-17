@@ -5,6 +5,7 @@ Copyright(c) PROJECTCODE. All rights reserved.
 </copyright>
 
 '''
+import mimetypes
 import traceback
 import os
 #these are the imports for flask
@@ -94,7 +95,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
+                        mimetype = mimetypes.guess_type('location')
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
@@ -129,7 +130,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
+                        mimetype = mimetypes.guess_type('location')
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
@@ -147,7 +148,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
+                        mimetype = mimetypes.guess_type('location')
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
@@ -165,7 +166,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
+                        mimetype = mimetypes.guess_type('location')
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
@@ -183,7 +184,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = fp.mimetype
+                        mimetype = mimetypes.guess_type('location')
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
