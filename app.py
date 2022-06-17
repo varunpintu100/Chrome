@@ -34,7 +34,7 @@ data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 
 actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':'Enter'},{'action':'getTitle'},{'action':'Clear'}]
 
-mimetype = "image/png"
+
 #this is used to create the page
 @app.route("/")
 def select_browsers():
@@ -94,6 +94,8 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
+                        mimetype = fp.mimetype
+
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
                         img.save_to_db()
@@ -127,6 +129,8 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
+                        mimetype = fp.mimetype
+
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
                         img.save_to_db()
@@ -142,6 +146,8 @@ def browser():
                         print(driver.get_screenshot_as_file(location))
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
+
+                        mimetype = fp.mimetype
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
@@ -159,6 +165,8 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
+                        mimetype = fp.mimetype
+
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
                         img.save_to_db()
@@ -174,6 +182,8 @@ def browser():
                         print(driver.get_screenshot_as_file(location))
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
+
+                        mimetype = fp.mimetype
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
