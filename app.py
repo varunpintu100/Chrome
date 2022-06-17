@@ -93,7 +93,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',errors='ignore')
 
                         mimetype = mimetypes.guess_type(location)
 
@@ -111,7 +111,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',encoding="utf8",errors='ignore')
+                        fp = open(location,'rb',errors='ignore')
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
@@ -128,7 +128,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',errors='ignore')
 
                         mimetype = mimetypes.guess_type(location)
 
@@ -146,7 +146,7 @@ def browser():
 
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',errors='ignore')
 
                         mimetype = mimetypes.guess_type(location)
 
@@ -164,7 +164,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',errors='ignore')
 
                         mimetype = mimetypes.guess_type(location)
 
@@ -182,7 +182,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',errors='ignore')
 
                         mimetype = mimetypes.guess_type(location)
 
