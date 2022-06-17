@@ -95,7 +95,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = mimetypes.guess_type('location')
+                        mimetype = mimetypes.guess_type(location)
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
@@ -130,7 +130,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = mimetypes.guess_type('location')
+                        mimetype = mimetypes.guess_type(location)
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
@@ -148,7 +148,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = mimetypes.guess_type('location')
+                        mimetype = mimetypes.guess_type(location)
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
@@ -166,7 +166,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = mimetypes.guess_type('location')
+                        mimetype = mimetypes.guess_type(location)
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
@@ -184,7 +184,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        mimetype = mimetypes.guess_type('location')
+                        mimetype = mimetypes.guess_type(location)
 
                         img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 

@@ -9,9 +9,9 @@ class IMG(db.Model):
 
     id=db.Column(db.Integer,primary_key=True)
     img=db.Column(db.Text,unique=True)
-    Xpath=db.Column(db.Text)
-    Name=db.Column(db.Text)
-    mimetype=db.Column(db.Text)
+    Xpath=db.Column(db.Text,nullable=False)
+    Name=db.Column(db.Text,nullable=False)
+    mimetype=db.Column(db.Text,nullable=False)
 
     def save_to_db(self):
         db.session.add(self)
