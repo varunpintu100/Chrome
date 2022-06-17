@@ -34,7 +34,7 @@ data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 
 actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':'Enter'},{'action':'getTitle'},{'action':'Clear'}]
 
-mimetype=mimetypetype = "image/png"
+mimetype = "image/png"
 #this is used to create the page
 @app.route("/")
 def select_browsers():
