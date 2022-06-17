@@ -11,6 +11,7 @@ class IMG(db.Model):
     img=db.Column(db.Text,unique=True)
     Xpath=db.Column(db.Text)
     Name=db.Column(db.Text)
+    mimetype=db.Coloumn(db.Text)
 
     def save_to_db(self):
         db.session.add(self)

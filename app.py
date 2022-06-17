@@ -34,6 +34,7 @@ data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 
 actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':'Enter'},{'action':'getTitle'},{'action':'Clear'}]
 
+mimetype=mimetypetype = "image/png"
 #this is used to create the page
 @app.route("/")
 def select_browsers():
@@ -93,7 +94,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -109,7 +110,7 @@ def browser():
 
                         fp = open(location,'rb',encoding="utf8",errors='ignore')
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -126,7 +127,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -142,7 +143,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -158,7 +159,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -174,7 +175,7 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='ignore')
 
-                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read().replace('\x00', ''),Xpath=xpath[i],Name=location,mimetype=mimetype)
 
                         img.save_to_db()
 
