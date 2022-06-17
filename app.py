@@ -91,10 +91,11 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'rb',encoding="utf8",errors='ignore')
 
+                        mimetype = fp.mimetype
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -108,10 +109,11 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'rb',encoding="utf8",errors='ignore')
 
+                        mimetype = fp.mimetype
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -126,9 +128,11 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'rb',encoding="utf8",errors='ignore')
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
+                        mimetype = fp.mimetype
+
+                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -142,10 +146,11 @@ def browser():
 
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'rb',encoding="utf8",errors='ignore')
 
+                        mimetype = fp.mimetype
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -159,10 +164,11 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'rb',encoding="utf8",errors='ignore')
 
+                        mimetype = fp.mimetype
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
 
                         img.save_to_db()
 
@@ -176,10 +182,11 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='ignore')
+                        fp = open(location,'rb',encoding="utf8",errors='ignore')
 
+                        mimetype = fp.mimetype
 
-                        img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
+                        img = IMG(img=fp.read(),Xpath=xpath[i],mimetype=mimetype)
 
                         img.save_to_db()
 
