@@ -91,7 +91,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
@@ -107,7 +107,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
@@ -124,7 +124,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
@@ -140,7 +140,7 @@ def browser():
 
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
@@ -156,7 +156,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
@@ -172,7 +172,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         img = IMG(img=fp.read(),Xpath=xpath[i],Name=location)
 
