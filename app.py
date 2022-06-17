@@ -113,7 +113,7 @@ def browser():
 
                         fp = open(location,'rb',encoding="utf8",errors='replace')
 
-                        img = IMG(id=i,id=i,img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(id=i,img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
                         img.save_to_db()
 
