@@ -91,7 +91,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         mimetype = fp.mimetype
 
@@ -109,7 +109,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         mimetype = fp.mimetype
 
@@ -128,7 +128,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         mimetype = fp.mimetype
 
@@ -146,7 +146,7 @@ def browser():
 
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         mimetype = fp.mimetype
 
@@ -164,7 +164,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         mimetype = fp.mimetype
 
@@ -182,7 +182,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',encoding="utf8",errors='ignore')
+                        fp = open(location,'r',encoding="utf8",errors='ignore')
 
                         mimetype = fp.mimetype
 
