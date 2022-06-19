@@ -2,7 +2,7 @@ import cloudinary
 import cloudinary.uploader
 
 class Cloud:
-    def upload(location):
+    def upload(self,location):
         result = cloudinary.uploader.upload(location)
         url = result.get("ur")
         return url
