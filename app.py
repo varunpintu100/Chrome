@@ -17,7 +17,7 @@ from driv import Chrome
 from selenium.webdriver.common.keys import Keys
 from models.imageTable import IMG
 import cloudinary
-import cloudinary.uploader
+from models.Cloudinary import Cloud
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
@@ -36,6 +36,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 #this is used the security key
 app.secret_key='Varun'
+
+Cloud_upload = Cloud()
 
 #this is to use the driver globally
 global driver
@@ -104,9 +106,7 @@ def browser():
 
                         # fp = open(location,'r',encoding="utf8",errors='replace')
 
-                        result = cloudinary.uploader.upload(location)
-
-                        url = result.get("url")
+                        url = Cloud_upload.upload(location)
 
                         # mimetype = mimetypes.guess_type(location)
 
@@ -123,9 +123,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        result = cloudinary.uploader.upload(location)
-
-                        url = result.get("url")
+                        url = Cloud_upload.upload(location)
 
                         # fp = open(location,'r',encoding="utf8",errors='replace')
 
@@ -145,9 +143,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        result = cloudinary.uploader.upload(location)
-
-                        url = result.get("url")
+                        url = Cloud_upload.upload(location)
 
                         # fp = open(location,'r',encoding="utf8",errors='replace')
 
@@ -167,9 +163,7 @@ def browser():
 
                         print(driver.get_screenshot_as_file(location))
 
-                        result = cloudinary.uploader.upload(location)
-
-                        url = result.get("url")
+                        url = Cloud_upload.upload(location)
 
                         # fp = open(location,'r',encoding="utf8",errors='replace')
 
@@ -189,9 +183,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        result = cloudinary.uploader.upload(location)
-
-                        url = result.get("url")
+                        url = Cloud_upload.upload(location)
 
                         # fp = open(location,'r',encoding="utf8",errors='replace')
 
@@ -211,9 +203,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        result = cloudinary.uploader.upload(location)
-
-                        url = result.get("url")
+                        url = Cloud_upload.upload(location)
 
                         # fp = open(location,'r',encoding="utf8",errors='replace')
 
