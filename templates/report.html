@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Code_Report</title>
+        <script src="../static/script/indexscript.js"></script> 
+        </head>
+    <body onload="display_ct();">
+        {{% for o in range(0,i) %}}
+        <p>"{{ info_list[i] }}"</p>
+        <br>
+        <a href="{{ url_list[i] }}">Tap to view Screenshot</a>
+        <br>
+    </body>
+    <span id='ct' ></span><!--  this field is used to display clock -->
