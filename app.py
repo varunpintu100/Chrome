@@ -104,7 +104,7 @@ def browser():
 
                         # fp = open(location,'r',encoding="utf8",errors='replace')
 
-                        result = cloudinary.uploader.upload_image(location)
+                        result = cloudinary.uploader.upload(location)
 
                         url = result.get("url")
 
@@ -123,7 +123,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        result = cloudinary.uploader.upload_image(location)
+                        result = cloudinary.uploader.upload(location)
 
                         url = result.get("url")
 
@@ -145,7 +145,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        result = cloudinary.uploader.upload_image(location)
+                        result = cloudinary.uploader.upload(location)
 
                         url = result.get("url")
 
@@ -167,7 +167,7 @@ def browser():
 
                         print(driver.get_screenshot_as_file(location))
 
-                        result = cloudinary.uploader.upload_image(location)
+                        result = cloudinary.uploader.upload(location)
 
                         url = result.get("url")
 
@@ -189,7 +189,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        result = cloudinary.uploader.upload_image(location)
+                        result = cloudinary.uploader.upload(location)
 
                         url = result.get("url")
 
@@ -211,7 +211,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        result = cloudinary.uploader.upload_image(location)
+                        result = cloudinary.uploader.upload(location)
 
                         url = result.get("url")
 
