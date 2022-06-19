@@ -103,16 +103,12 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        # fp = open(location,'r',encoding="utf8",errors='replace')
-
                         url = Cloud_upload.upload(location)
 
                         # mimetype = mimetypes.guess_type(location)
 
                         img = IMG(img=url,Xpath=xpath[i],Name=location)
                         img.save_to_db()
-
-                        # fp.close()
 
                         lt.append({"click":xpath[i]})
 
@@ -124,14 +120,10 @@ def browser():
 
                         url = Cloud_upload.upload(location)
 
-                        # fp = open(location,'r',encoding="utf8",errors='replace')
-
                         img = IMG(img=url,Xpath=xpath[i],Name=location)
 
 
                         img.save_to_db()
-
-                        # fp.close()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
@@ -144,15 +136,9 @@ def browser():
 
                         url = Cloud_upload.upload(location)
 
-                        # fp = open(location,'r',encoding="utf8",errors='replace')
-
-                        # mimetype = mimetypes.guess_type(location)
-
                         img = IMG(img=url,Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
-
-                        # fp.close()
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
@@ -164,15 +150,9 @@ def browser():
 
                         url = Cloud_upload.upload(location)
 
-                        # fp = open(location,'r',encoding="utf8",errors='replace')
-
-                        # mimetype = mimetypes.guess_type(location)
-
                         img = IMG(img=url,Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
-
-                        # fp.close()
 
                         lt.append({"Enter":xpath[i]})
 
@@ -184,15 +164,9 @@ def browser():
 
                         url = Cloud_upload.upload(location)
 
-                        # fp = open(location,'r',encoding="utf8",errors='replace')
-
-                        # mimetype = mimetypes.guess_type(location)
-
                         img = IMG(img=url,Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
-
-                        # fp.close()
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
@@ -204,15 +178,9 @@ def browser():
 
                         url = Cloud_upload.upload(location)
 
-                        # fp = open(location,'r',encoding="utf8",errors='replace')
-
-                        # mimetype = mimetypes.guess_type(location)
-
                         img = IMG(img=url,Xpath=xpath[i],Name=location)
 
                         img.save_to_db()
-
-                        # fp.close()
 
                         lt.append({"Clear":xpath[i]})
 
