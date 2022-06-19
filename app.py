@@ -102,7 +102,7 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='replace')
+                        # fp = open(location,'r',encoding="utf8",errors='replace')
 
                         result = cloudinary.uploader.upload_image(location)
 
@@ -110,10 +110,10 @@ def browser():
 
                         # mimetype = mimetypes.guess_type(location)
 
-                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
-                        # img.save_to_db()
+                        img = IMG(img=url,Xpath=xpath[i],Name=location)
+                        img.save_to_db()
 
-                        fp.close()
+                        # fp.close()
 
                         lt.append({"click":xpath[i]})
 
@@ -123,14 +123,18 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        ddd
+                        result = cloudinary.uploader.upload_image(location)
 
-                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        url = result.get("url")
+
+                        # fp = open(location,'r',encoding="utf8",errors='replace')
+
+                        img = IMG(img=url,Xpath=xpath[i],Name=location)
 
 
-                        # img.save_to_db()
+                        img.save_to_db()
 
-                        fp.close()
+                        # fp.close()
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
@@ -141,15 +145,19 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='replace')
+                        result = cloudinary.uploader.upload_image(location)
+
+                        url = result.get("url")
+
+                        # fp = open(location,'r',encoding="utf8",errors='replace')
 
                         # mimetype = mimetypes.guess_type(location)
 
-                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=url,Xpath=xpath[i],Name=location)
 
-                        # img.save_to_db()
+                        img.save_to_db()
 
-                        fp.close()
+                        # fp.close()
 
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
@@ -159,15 +167,19 @@ def browser():
 
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='replace')
+                        result = cloudinary.uploader.upload_image(location)
+
+                        url = result.get("url")
+
+                        # fp = open(location,'r',encoding="utf8",errors='replace')
 
                         # mimetype = mimetypes.guess_type(location)
 
-                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=url,Xpath=xpath[i],Name=location)
 
-                        # img.save_to_db()
+                        img.save_to_db()
 
-                        fp.close()
+                        # fp.close()
 
                         lt.append({"Enter":xpath[i]})
 
@@ -177,15 +189,19 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='replace')
+                        result = cloudinary.uploader.upload_image(location)
+
+                        url = result.get("url")
+
+                        # fp = open(location,'r',encoding="utf8",errors='replace')
 
                         # mimetype = mimetypes.guess_type(location)
 
-                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=url,Xpath=xpath[i],Name=location)
 
-                        # img.save_to_db()
+                        img.save_to_db()
 
-                        fp.close()
+                        # fp.close()
 
                         lt.append({"getTitle":xpath[i] +"--"+ temp})
                     
@@ -195,15 +211,19 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'r',encoding="utf8",errors='replace')
+                        result = cloudinary.uploader.upload_image(location)
+
+                        url = result.get("url")
+
+                        # fp = open(location,'r',encoding="utf8",errors='replace')
 
                         # mimetype = mimetypes.guess_type(location)
 
-                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=url,Xpath=xpath[i],Name=location)
 
-                        # img.save_to_db()
+                        img.save_to_db()
 
-                        fp.close()
+                        # fp.close()
 
                         lt.append({"Clear":xpath[i]})
 
