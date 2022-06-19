@@ -99,8 +99,7 @@ def browser():
 
                         mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode(),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
-
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode("UTF-8"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
                         img.save_to_db()
 
                         fp.close()
@@ -115,7 +114,7 @@ def browser():
 
                         fp = open(location,'rb',encoding="utf8",errors='replace')
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode(),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode("UTF-8"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
 
                         img.save_to_db()
@@ -135,8 +134,7 @@ def browser():
 
                         mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode(),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
-
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode("UTF-8"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
                         img.save_to_db()
 
@@ -154,8 +152,7 @@ def browser():
 
                         mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode(),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
-
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode("UTF-8"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
                         img.save_to_db()
 
@@ -173,8 +170,7 @@ def browser():
 
                         mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode(),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
-
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode("UTF-8"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
                         img.save_to_db()
 
@@ -192,8 +188,7 @@ def browser():
 
                         mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode(),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
-
+                        img = IMG(img=fp.read().replace("\x00", "\uFFFD").encode("UTF-8"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
                         img.save_to_db()
 
