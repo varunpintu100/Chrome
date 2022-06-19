@@ -6,8 +6,6 @@ Copyright(c) PROJECTCODE. All rights reserved.
 
 '''
 
-
-import mimetypes
 import traceback
 import os
 #these are the imports for flask
@@ -93,6 +91,7 @@ def browser():
             print(f"The given URL is : {url}")
 #this is used to navigate to the respected url
             driver.get(url)
+            i=0
             j=0
             for i in range(0,len(action_item)):
                 location = "image_"+str(i)+".png"
@@ -220,9 +219,12 @@ def browser():
             #this is used to store the source of the page as a string
             driver.quit()
             #this is used to check weather we are getting any text if no text is found then it returns the webpage source
-            if temp=="":
-                return {"message":lt},200
-            return {"message":f"The data we got is {temp}"},200
+            test = IMG.query.all()
+            url_list=[]
+            for j in test:
+                url_list.append(j.img)
+            url_list=url_list[-i:]
+            return render_template('report.html',i=i,urls=url_list,info_list=lt)
         return browser_name
 #this is used to quit the driver when some exception occurs all of a sudden.
     except Exception as e:
