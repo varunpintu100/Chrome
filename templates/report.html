@@ -6,10 +6,12 @@
         <script src="../static/script/indexscript.js"></script> 
         </head>
     <body onload="display_ct();">
+        <h1>--Report--</h1>
         {% for j in range(0,i+1) %}
         <p>{{ info_list[j] }}</p>
         <br>
         <a href="{{ urls[j] }}">Tap to view Screenshot</a>
+        <a href="{{ urls[j] }}" download="Screenshot + {{j}}">Click here to download the image</a>
         <br>
         {% endfor %}
         <span id='ct' ></span><!--  this field is used to display clock -->

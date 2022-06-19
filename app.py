@@ -91,8 +91,7 @@ def browser():
             print(f"The given URL is : {url}")
 #this is used to navigate to the respected url
             driver.get(url)
-            i=0
-            j=0
+            i,j=0,0
             for i in range(0,len(action_item)):
                 location = "image_"+str(i)+".png"
                 if xpath[i]!="":
@@ -104,8 +103,6 @@ def browser():
                         print(driver.get_screenshot_as_file(location))
 
                         url = Cloud_upload.upload(location)
-
-                        # mimetype = mimetypes.guess_type(location)
 
                         img = IMG(img=url,Xpath=xpath[i],Name=location)
                         img.save_to_db()
