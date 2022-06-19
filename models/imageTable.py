@@ -7,7 +7,7 @@ class IMG(db.Model):
     #We are creating the coloumns for the table in the database
 
     id=db.Column(db.Integer,primary_key=True)
-    img=db.Column(db.Text,unique=True,nullable=False)
+    img=db.Column(db.LargeBinary)
     mimetype=db.Column(db.Text,nullable=False)
     Xpath=db.Column(db.Text,nullable=False)
     Name=db.Column(db.Text,nullable=False)
