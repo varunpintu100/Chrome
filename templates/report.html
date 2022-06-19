@@ -6,7 +6,7 @@
         <script src="../static/script/indexscript.js"></script> 
         </head>
     <body onload="display_ct();">
-        {% for j in range(0,i) %}
+        {% for j in range(0,i+1) %}
         <p>{{ info_list[j] }}</p>
         <br>
         <a href="{{ urls[j] }}">Tap to view Screenshot</a>
