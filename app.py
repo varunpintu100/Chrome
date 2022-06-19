@@ -223,8 +223,8 @@ def browser():
             url_list=[]
             for j in test:
                 url_list.append(j.img)
-            url_list=url_list[-i:]
-            return render_template('report.html',i=i,urls=url_list,info_list=lt)
+            url_list=url_list[-(i+1):]
+            return render_template('report.html',i=i+1,urls=url_list,info_list=lt)
         return browser_name
 #this is used to quit the driver when some exception occurs all of a sudden.
     except Exception as e:
