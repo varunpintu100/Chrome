@@ -16,9 +16,16 @@ from flask import Flask,render_template,request
 from driv import Chrome
 from selenium.webdriver.common.keys import Keys
 from models.imageTable import IMG
+import cloudinary
+import cloudinary.uploader
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
+cloudinary.config(
+    cloud_name="dwxf7m3ok",
+    api_key="355315699667415",
+    api_secret="fyrznhQeyvg--HoLvGxgOPuOqus"
+)
 
 uri = os.environ.get("DATABASE_URL","sqlite:///data.db")
 if uri.startswith("postgres://"):
@@ -97,10 +104,14 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='replace')
 
-                        mimetype = mimetypes.guess_type(location)
+                        result = cloudinary.uploader.upload_image(location)
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
-                        img.save_to_db()
+                        url = result.get("url")
+
+                        # mimetype = mimetypes.guess_type(location)
+
+                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        # img.save_to_db()
 
                         fp.close()
 
@@ -112,12 +123,12 @@ def browser():
                         
                         print(driver.get_screenshot_as_file(location))
 
-                        fp = open(location,'rb',encoding="utf8",errors='replace')
+                        ddd
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
 
-                        img.save_to_db()
+                        # img.save_to_db()
 
                         fp.close()
 
@@ -132,11 +143,11 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='replace')
 
-                        mimetype = mimetypes.guess_type(location)
+                        # mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
-                        img.save_to_db()
+                        # img.save_to_db()
 
                         fp.close()
 
@@ -150,11 +161,11 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='replace')
 
-                        mimetype = mimetypes.guess_type(location)
+                        # mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
-                        img.save_to_db()
+                        # img.save_to_db()
 
                         fp.close()
 
@@ -168,11 +179,11 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='replace')
 
-                        mimetype = mimetypes.guess_type(location)
+                        # mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
-                        img.save_to_db()
+                        # img.save_to_db()
 
                         fp.close()
 
@@ -186,11 +197,11 @@ def browser():
 
                         fp = open(location,'r',encoding="utf8",errors='replace')
 
-                        mimetype = mimetypes.guess_type(location)
+                        # mimetype = mimetypes.guess_type(location)
 
-                        img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
+                        # img = IMG(img=fp.read().replace("\x00", "\uFFFD"),Xpath=xpath[i],Name=location,mimetype=mimetype[0])
 
-                        img.save_to_db()
+                        # img.save_to_db()
 
                         fp.close()
 
