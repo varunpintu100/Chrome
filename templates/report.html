@@ -11,7 +11,12 @@
         <p>{{ info_list[j] }}</p>
         <br>
         <a href="{{ urls[j] }}">Tap to view Screenshot</a>
+        <br>
         <a href="{{ urls[j] }}" download="Screenshot + {{j}}">Click here to download the image</a>
+        <br>
+        {% endfor %}
+        {% for j in range(0,len(finallist)) %}
+        <a href="{{finallist[j]}}">List number + {{j}}</a>
         <br>
         {% endfor %}
         <span id='ct' ></span><!--  this field is used to display clock -->
