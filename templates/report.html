@@ -15,7 +15,7 @@
         <a href="{{ urls[j] }}" download="Screenshot + {{j}}">Click here to download the image</a>
         <br>
         {% endfor %}
-        {% for j in range(0,len(finallist)) %}
+        {% for j in range(0,(alist |length)) %}
         <a href="{{finallist[j]}}">List number + {{j}}</a>
         <br>
         {% endfor %}
