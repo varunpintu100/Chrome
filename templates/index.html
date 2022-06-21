@@ -4,6 +4,7 @@
 <head>
     <title>Project_code</title>
     <script src="../static/script/indexscript.js"></script> 
+    <link rel="stylesheet" type="text/css" href="../static/styles/indexstyles.css">
     </head>
 <body onload="display_ct();">
     <h1>Project_Code</h1>
@@ -16,7 +17,7 @@
     </select>
     <br>
     <label>Please enter the url :</label>
-    <input type="text" name="url_input">
+    <input type="text" name="url_input" placeholder="URL">
     <br>
     {% for i in range(0,test) %}
     <select name="Actions" onchange="yesnoCheck();">
@@ -24,7 +25,7 @@
     <option value="{{ o.action}}">{{o.action}}</option>
     {% endfor %}
     </select>
-    <input type="text" name="Xpath_info">
+    <input type="text" name="Xpath_info" placeholder="Xpath">
     <br>
     <div id="ifYes" name="Input_text_1" style="display: none;">
     <label>Enter the data :</label><input type="text" name="Input_text">
