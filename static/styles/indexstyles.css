@@ -4,11 +4,19 @@ body{
     background: #EAE7DC;
     margin: 8px;
 }
+.container {
+    height: 250px;
+    width: 250px;
+}
+.container img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
 h1
 {
+    color : grey;
     text-align: center;
-    font-family:  "Gill Sans", sans-serif;
-    color : #5a5560;
 }
 span{
     color : #46344e;
