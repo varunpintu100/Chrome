@@ -7,7 +7,9 @@ from selenium.webdriver.common.keys import Keys
 Cloud_upload = Cloud()
 
 class Chrome:
-    
+    capabilities = {
+ "resolution": "1024x768"
+}
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
