@@ -1,4 +1,3 @@
-import cloudinary
 import cloudinary.uploader
 
 class Cloud:

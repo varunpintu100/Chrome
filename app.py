@@ -11,11 +11,10 @@ import os
 #these are the imports for flask
 from flask import Flask,render_template,request
 #these are the imports for selenium
-from driv import Chrome
-from selenium.webdriver.common.keys import Keys
+from models.driv import Chrome
 from models.imageTable import IMG
 import cloudinary
-from models.Cloudinary import Cloud
+
 #this is the step used to declare the flask app
 app = Flask(__name__)
 
@@ -23,7 +22,7 @@ cloudinary.config(
     cloud_name="dwxf7m3ok",
     api_key="355315699667415",
     api_secret="fyrznhQeyvg--HoLvGxgOPuOqus"
-)
+    )
 
 uri = os.environ.get("DATABASE_URL","sqlite:///data.db")
 if uri.startswith("postgres://"):
@@ -34,9 +33,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 #this is used the security key
 app.secret_key='Varun'
-
-Cloud_upload = Cloud()
-
 #this is to use the driver globally
 global driver
 
@@ -98,86 +94,39 @@ def browser():
             #this is used to perform the action item and based on the if condition respective action will happen
                     if action_item[i] == "click":
 
-                        driver.find_element_by_xpath(xpath=xpath[i]).click()
-                        
-                        print(driver.get_screenshot_as_file(location))
-
-                        url = Cloud_upload.upload(location)
-
-                        img = IMG(img=url,Xpath=xpath[i],Name=location)
-                        img.save_to_db()
+                        chrome_1.Click(driver=driver,xpath=xpath[i],location=location)
 
                         lt.append({"click":xpath[i]})
 
                     if action_item[i] == "getText":
-
-                        temp = driver.find_element_by_xpath(xpath=xpath[i]).text
                         
-                        print(driver.get_screenshot_as_file(location))
-
-                        url = Cloud_upload.upload(location)
-
-                        img = IMG(img=url,Xpath=xpath[i],Name=location)
-
-
-                        img.save_to_db()
+                        temp = chrome_1.GetText(driver=driver,xpath=xpath[i],location=location)
 
                         lt.append({"getText":xpath[i] + "--" + temp})
 
                     if action_item[i] == "Input":
 
-                        driver.find_element_by_xpath(xpath=xpath[i]).send_keys(input_data[j])
+                        chrome_1.Input(driver=driver,xpath=xpath[i],input_data=input_data[j],location=location)
+
                         j=j+1
                         
-                        print(driver.get_screenshot_as_file(location))
-
-                        url = Cloud_upload.upload(location)
-
-                        img = IMG(img=url,Xpath=xpath[i],Name=location)
-
-                        img.save_to_db()
-
                         lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
 
                     if action_item[i] == "Enter":
 
-                        driver.find_element_by_xpath(xpath=xpath[i]).send_keys(Keys.ENTER)
-
-                        print(driver.get_screenshot_as_file(location))
-
-                        url = Cloud_upload.upload(location)
-
-                        img = IMG(img=url,Xpath=xpath[i],Name=location)
-
-                        img.save_to_db()
+                        chrome_1.Enter(driver=driver,xpath=xpath[i],location=location)
 
                         lt.append({"Enter":xpath[i]})
 
                     if action_item[i] == "getTitle":
 
-                        temp = driver.title()
-                        
-                        print(driver.get_screenshot_as_file(location))
-
-                        url = Cloud_upload.upload(location)
-
-                        img = IMG(img=url,Xpath=xpath[i],Name=location)
-
-                        img.save_to_db()
-
-                        lt.append({"getTitle":xpath[i] +"--"+ temp})
+                        temp = chrome_1.Title(driver=driver,location=location)
+    
+                        lt.append({"getTitle":temp})
                     
                     if action_item[i] == "Clear":
 
-                        driver.find_element_by_xpath(xpath=xpath[i]).clear()
-                        
-                        print(driver.get_screenshot_as_file(location))
-
-                        url = Cloud_upload.upload(location)
-
-                        img = IMG(img=url,Xpath=xpath[i],Name=location)
-
-                        img.save_to_db()
+                        chrome_1.Clear(driver=driver,xpath=xpath[i],location=location)
 
                         lt.append({"Clear":xpath[i]})
 
