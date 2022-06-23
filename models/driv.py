@@ -1,7 +1,7 @@
 from selenium import webdriver
 from models.Cloudinary import Cloud
 import os
-from imageTable import IMG
+from models.imageTable import IMG
 from selenium.webdriver.common.keys import Keys
 
 Cloud_upload = Cloud()
