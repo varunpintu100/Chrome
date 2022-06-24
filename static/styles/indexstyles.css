@@ -40,3 +40,12 @@ button{
   color:#fff;
   border-radius:5px;
 }
+p{
+    font-size: small;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: green;
+}
+h4{
+    font-size: medium;
+    color: green;
+}
