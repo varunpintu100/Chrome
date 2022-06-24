@@ -14,8 +14,7 @@
         <h4>--TestCases Passed---</h4>
         {% for j in range(0,i+1) %}
         <p>Action - {{ info_list[j]['action'] }}</p>
-        <p>Xpath - {{ info_list[j]['Xpath'] }}</p>
-        <br>
+        <p>Xpath - {{ info_list[j]['xpath'] }}</p>
         <a href="{{ urls[j-(i+1)] }}">Tap to view Screenshot</a>
         <br>
         <a href="{{ urls[j-(i+1)] }}" download>Click here to download the image</a>
