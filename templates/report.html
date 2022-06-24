@@ -13,7 +13,8 @@
         <h1>--Report--</h1>
         <h4>--TestCases Passed---</h4>
         {% for j in range(0,i+1) %}
-        <p>{{ info_list[j] }}</p>
+        <p>Action - {{ info_list[j]['action'] }}</p>
+        <p>Xpath - {{ info_list[j]['Xpath'] }}</p>
         <br>
         <a href="{{ urls[j-(i+1)] }}">Tap to view Screenshot</a>
         <br>

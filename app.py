@@ -96,13 +96,13 @@ def browser():
 
                         chrome_1.Click(driver=driver,xpath=xpath[i],location=location)
 
-                        lt.append({"click":xpath[i]})
+                        lt.append({'action':action_item[i],'xpath':xpath[i]})
 
                     if action_item[i] == "getText":
                         
                         temp = chrome_1.GetText(driver=driver,xpath=xpath[i],location=location)
 
-                        lt.append({"getText":xpath[i] + "--" + temp})
+                        lt.append({'action':action_item[i],'xpath':xpath[i]})
 
                     if action_item[i] == "Input":
 
@@ -110,25 +110,25 @@ def browser():
 
                         j=j+1
                         
-                        lt.append({"Input":xpath[i] +"--"+ input_data[j-1]})
+                        lt.append({'action':action_item[i],'xpath':xpath[i]})
 
                     if action_item[i] == "Enter":
 
                         chrome_1.Enter(driver=driver,xpath=xpath[i],location=location)
 
-                        lt.append({"Enter":xpath[i]})
+                        lt.append({'action':action_item[i],'xpath':xpath[i]})
 
                     if action_item[i] == "getTitle":
 
                         temp = chrome_1.Title(driver=driver,location=location)
     
-                        lt.append({"getTitle":temp})
+                        lt.append({'action':action_item[i],'xpath':'None'})
                     
                     if action_item[i] == "Clear":
 
                         chrome_1.Clear(driver=driver,xpath=xpath[i],location=location)
 
-                        lt.append({"Clear":xpath[i]})
+                        lt.append({'action':action_item[i],'xpath':xpath[i]})
 
             #this is used to store the source of the page as a string
             driver.quit()
