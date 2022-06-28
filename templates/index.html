@@ -26,16 +26,12 @@
     <input type="text" name="url_input" placeholder="URL">
     <br>
     {% for i in range(0,test) %}
-    <select name="Actions" onchange="yesnoCheck();">
-    {% for o in actions %}
-    <option value="{{ o.action}}">{{o.action}}</option>
-    {% endfor %}
-    </select>
-    <input type="text" name="Xpath_info" placeholder="Xpath">
-    <br>
-    <div id="ifYes" name="Input_text_1" style="display: none;">
-    <label>Enter the data :</label><input type="text" name="Input_text">
-    </div>
+    <table>
+        <tr>
+              <td><button type="button" onClick ="addRow(this)">Add</button></td>
+              <td><button type="button" onClick ="Delete(this)">Remove</button></td>
+         </tr>
+    </table>
     {% endfor %}
     <button type="submit" value="Select_Browser">Select</button>
     </form>
