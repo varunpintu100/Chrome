@@ -46,11 +46,6 @@ actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':
 def select_browsers():
     return render_template('index.html',data=data,actions=actions,test=0)
 
-@app.route("/count",methods=["POST"])
-def input_count():
-    count = int(request.form['number_input'])
-    return render_template('index.html',data=data,actions=actions,test=count)
-
 @app.route("/browser",methods=["POST"])
 def browser():
 
