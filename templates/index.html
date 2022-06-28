@@ -25,14 +25,12 @@
     <label>Please enter the url :</label>
     <input type="text" name="url_input" placeholder="URL">
     <br>
-    {% for i in range(0,test) %}
     <table>
         <tr>
               <td><button type="button" onClick ="addRow(this)">Add</button></td>
               <td><button type="button" onClick ="Delete(this)">Remove</button></td>
          </tr>
     </table>
-    {% endfor %}
     <button type="submit" value="Select_Browser">Select</button>
     <br>
     <span id='ct' ></span><!--  this field is used to display clock -->
