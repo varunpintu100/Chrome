@@ -78,7 +78,7 @@ def browser():
             #this is used to get the xpath info from the forms
             xpath = request.form.getlist("Xpath_info")
             print(xpath)
-            input_data = request.form.getlist("Input_text")
+            input_data = request.form.getlist("Input_text_1")
             print(input_data)
             #this is o get the url in the console
             print(f"The given URL is : {url}")
