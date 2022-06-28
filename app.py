@@ -9,7 +9,7 @@ Copyright(c) PROJECTCODE. All rights reserved.
 import traceback
 import os
 #these are the imports for flask
-from flask import Flask,render_template,request
+from flask import Flask, flash,render_template,request
 #these are the imports for selenium
 from models.driv import Chrome
 from models.imageTable import IMG
@@ -69,7 +69,7 @@ def browser():
 #this method is to return the driver from remote
             driver = chrome_1.driver()
 #this is used to get the data from the form in the html
-            url = str(request.form["url_input"])
+            url = str(request.form["url_input"]).replace("https://","")
 #this is used to add https: in the starting of the url
             url="https://"+url
             #this is used to get the type of action that needs to be performed
@@ -139,6 +139,9 @@ def browser():
 #this is used to quit the driver when some exception occurs all of a sudden.
     except Exception as e:
         driver.quit()
+
+        if "Exceptionlist" in e:
+            return render_template('index.html',error="Please enter the xpath for the second object")
         
         return {"message":f"Exception{e}{traceback.print_exc()}"}
 

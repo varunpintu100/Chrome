@@ -14,6 +14,9 @@
     <div class="container">
     <img src="../static/styles/ProjectCode.png" alt="Logo">
     </div>
+    {% if error %}  
+    <p><strong>Error</strong>: {{error}}</p>  
+    {% endif %}  
     <form method="POST" action="{{ url_for('browser') }}">
     <label>Choose a browser :</label>
     <select name="browsers">
