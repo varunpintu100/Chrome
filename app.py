@@ -74,10 +74,12 @@ def browser():
             url="https://"+url
             #this is used to get the type of action that needs to be performed
             action_item = request.form.getlist('Actions')
+            print(action_item)
             #this is used to get the xpath info from the forms
             xpath = request.form.getlist("Xpath_info")
-
+            print(xpath)
             input_data = request.form.getlist("Input_text")
+            print(input_data)
             #this is o get the url in the console
             print(f"The given URL is : {url}")
 #this is used to navigate to the respected url
