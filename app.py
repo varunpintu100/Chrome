@@ -38,13 +38,11 @@ global driver
 
 data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 
-actions = [{'action':'click'},{'action':'getText'},{'action':'Input'},{'action':'Enter'},{'action':'getTitle'},{'action':'Clear'}]
-
 
 #this is used to create the page
 @app.route("/")
 def select_browsers():
-    return render_template('index.html',data=data,actions=actions,test=0)
+    return render_template('index.html',data=data)
 
 @app.route("/browser",methods=["POST"])
 def browser():
@@ -141,7 +139,7 @@ def browser():
         driver.quit()
 
         if "Exceptionlist" in e:
-            return render_template('index.html',error="Please enter the xpath for the second object")
+            return render_template('index.html',error="Please enter the xpath for the second object",data=data)
         
         return {"message":f"Exception{e}{traceback.print_exc()}"}
 
