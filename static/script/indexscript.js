@@ -16,7 +16,7 @@ window. addRow = function addRow(btn) {
     var element3 = document.createElement("input");
     element3.type="text";
     element3.id="ifYes";
-    element3.name="Input_text_1";
+    element3.name="Input_text";
     element3.style="display: none;";
     cell2.appendChild(element3);
     var cell3 = row.insertCell(2);
