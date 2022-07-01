@@ -71,7 +71,7 @@ def Hitendpoint():
             response = api.POST(url=url,body=body)
     except Exception as e:
         return {"message":f"{e}"}
-    return make_response(jsonify(response),200)
+    return render_template("apiresponse.html",response=response)
     
 
 
