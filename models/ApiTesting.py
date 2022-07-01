@@ -3,10 +3,10 @@ import json
 
 class API:
     
-    def GET(self,url,body="NA"):
+    def GET(self,url,body=""):
         lt={}
         try:
-            if body != "NA":
+            if body != "":
                 response_code=re.get(url,params=body)
                 lt['response_code'] = response_code
 
@@ -30,10 +30,10 @@ class API:
             return {'Error Message':e}
         return lt
     
-    def POST(self,url,body="NA"):
+    def POST(self,url,body=""):
         lt={}
         try:
-            if body != "NA":
+            if body != "":
                 response_code=re.get(url,params=body)
                 lt['response_code'] = response_code
 

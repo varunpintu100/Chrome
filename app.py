@@ -62,16 +62,10 @@ def Hitendpoint():
     url = request.form["Endpoint"]
     body = request.form["RequestBody"]
     try:
-        if body:
-            if method=="GET":
-                response = api.GET(url=url,body=body)
-            if method == "POST":
-                response = api.POST(url=url,body=body)
-        else:
-            if method=="GET":
-                response = api.GET(url=url)
-            if method == "POST":
-                response = api.POST(url=url)
+        if method=="GET":
+            response = api.GET(url=url,body=body)
+        if method == "POST":
+            response = api.POST(url=url,body=body)
     except Exception as e:
         return {"message":f"{e}"}
     return make_response(jsonify(response),200)
