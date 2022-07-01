@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project_code</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/styles/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/styles//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/styles//favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="../static/styles/favicon.ico">
+    <script src="../static/script/indexscript.js"></script> 
+    <link rel="stylesheet" type="text/css" href="../static/styles/indexstyles.css">
+</head>
+<body>
+    <form method="POST" action="{{ url_for(Hitendpoint) }}">
+        <select name="method">
+            {% for o in data %}
+            <option value="{{ o.name}}">{{o.name}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label>Enter the Endpoint :</label>
+        <input type="text" name="Endpoint" placeholder="Endpoint">
+        <br>
+        <label>Request Body:</label>
+        <br>
+        <input type="text" name="RequestBody" placeholder="RequestBody">
+        <br>
+        <button type="submit" name="enter">Submit</button>
+    </form>

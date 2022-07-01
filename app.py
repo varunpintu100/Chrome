@@ -6,10 +6,12 @@ Copyright(c) PROJECTCODE. All rights reserved.
 
 '''
 
+from crypt import methods
 import traceback
 import os
 #these are the imports for flask
 from flask import Flask, flash,render_template,request
+from models.ApiTesting import API
 #these are the imports for selenium
 from models.driv import Chrome
 from models.imageTable import IMG
@@ -37,7 +39,7 @@ app.secret_key='Varun'
 global driver
 
 data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
-
+methods=[{'name':"GET"},{'name':"PUT"},{'name':"POST"}]
 
 #this is used to create the page
 @app.route("/")
@@ -46,12 +48,34 @@ def select_browsers():
 
 @app.route("/uiautomation")
 def uiautomation():
-        return render_template('index.html',data=data)
+        return render_template('uiautomation.html',data=data)
 
 @app.route("/apiautomation")
 def apiautomation():
-        return {"message":"Integration pending"}
+        return render_template("apiautomation.html",data=methods)
 
+@app.route("/apiautomation/endpoint",methods=["POST"])
+def Hitendpoint():
+    api=API()
+    method = request.form.get('method')
+    url = request.form["Endpoint"]
+    body = request.form["RequestBody"]
+    try:
+        if body:
+            if method=="GET":
+                response = api.GET(url=url,body=body)
+            if method == "POST":
+                response = api.POST(url=url,body=body)
+        else:
+            if method=="GET":
+                response = api.GET(url=url)
+            if method == "POST":
+                response = api.POST(url=url)
+    except Exception as e:
+        return {"message":f"{e}"}
+    return {"response code":response['response_code'],
+            "repsonse":response['response_result']}
+    
 
 
 @app.route("/uiautomation/browser",methods=["POST"])
@@ -149,7 +173,7 @@ def browser():
         driver.quit()
 
         if "Exceptionlist" in e:
-            return render_template('index.html',error="Please enter the xpath for the second object",data=data)
+            return render_template('uiautomation.html',error="Please enter the xpath for the second object",data=data)
         
         return {"message":f"Exception{e}{traceback.print_exc()}"}
 
