@@ -7,10 +7,11 @@ Copyright(c) PROJECTCODE. All rights reserved.
 '''
 
 from crypt import methods
+import json
 import traceback
 import os
 #these are the imports for flask
-from flask import Flask, flash,render_template,request
+from flask import Flask,make_response, jsonify,render_template,request
 from models.ApiTesting import API
 #these are the imports for selenium
 from models.driv import Chrome
@@ -73,8 +74,7 @@ def Hitendpoint():
                 response = api.POST(url=url)
     except Exception as e:
         return {"message":f"{e}"}
-    return {"response code":response['response_code'],
-            "repsonse":response['response_result']}
+    return make_response(jsonify(response),200)
     
 
 
