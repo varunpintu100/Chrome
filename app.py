@@ -39,7 +39,7 @@ app.secret_key='Varun'
 global driver
 
 data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
-methods=[{'name':"GET"},{'name':"PUT"},{'name':"POST"}]
+method=[{'name':"GET"},{'name':"PUT"},{'name':"POST"}]
 
 #this is used to create the page
 @app.route("/")
@@ -52,7 +52,7 @@ def uiautomation():
 
 @app.route("/apiautomation")
 def apiautomation():
-        return render_template("apiautomation.html",data=methods)
+        return render_template("apiautomation.html",data=method)
 
 @app.route("/apiautomation/endpoint",methods=["POST"])
 def Hitendpoint():

@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../static/styles/indexstyles.css">
 </head>
 <body>
-    <form method="POST" action="{{ url_for(Hitendpoint) }}">
+    <form method="POST" action="{{ url_for('Hitendpoint') }}">
         <select name="method">
             {% for o in data %}
             <option value="{{ o.name}}">{{o.name}}</option>
