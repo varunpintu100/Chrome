@@ -22,14 +22,14 @@ class Chrome:
         return driver
 
     def Click(self,driver,xpath,location):
-         driver.find_element_by_xpath(xpath=xpath).click()
+         driver.find_element("xpath",xpath).click()
          driver.get_screenshot_as_file(location)
          url = Cloud_upload.upload(location)
          img = IMG(img=url,Xpath=xpath,Name=location)
          img.save_to_db()
     
     def GetText(self,driver,xpath,location):
-        text = driver.find_element_by_xpath(xpath=xpath).text
+        text = driver.find_element("xpath",xpath).text
         driver.get_screenshot_as_file(location)
         url = Cloud_upload.upload(location)
         img = IMG(img=url,Xpath=xpath,Name=location)
@@ -37,14 +37,14 @@ class Chrome:
         return text
 
     def Input(self,driver,xpath,input_data,location):
-        driver.find_element_by_xpath(xpath=xpath).send_keys(input_data)
+        driver.find_element("xpath",xpath).send_keys(input_data)
         driver.get_screenshot_as_file(location)
         url = Cloud_upload.upload(location)
         img = IMG(img=url,Xpath=xpath,Name=location)
         img.save_to_db()
     
     def Enter(self,driver,xpath,location):
-         driver.find_element_by_xpath(xpath=xpath).send_keys(Keys.ENTER)
+         driver.find_element("xpath",xpath).send_keys(Keys.ENTER)
          driver.get_screenshot_as_file(location)
          url = Cloud_upload.upload(location)
          img = IMG(img=url,Xpath=xpath,Name=location)
@@ -59,7 +59,7 @@ class Chrome:
          return title
     
     def Clear(self,driver,xpath,location):
-         driver.find_element_by_xpath(xpath=xpath).click()
+         driver.find_element("xpath",xpath).click()
          driver.get_screenshot_as_file(location)
          url = Cloud_upload.upload(location)
          img = IMG(img=url,Xpath=xpath,Name=location)
