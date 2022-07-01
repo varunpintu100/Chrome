@@ -17,7 +17,7 @@
     {% if error %}  
     <p><strong>Error</strong>: {{error}}</p>  
     {% endif %}  
-    <form method="POST" action="{{ url_for('browser') }}">
+    <form method="POST" action="{{ url_for('uiautomation/browser') }}">
     <label>Choose a browser :</label>
     <select name="browsers">
     {% for o in data %}
