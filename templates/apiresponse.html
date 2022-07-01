@@ -12,7 +12,11 @@
 <body>
     <label>ResponseCode - {{ response['response_code'] }}</label>
     <br>
-    <label>Response Result - {{ response['response_result'] }}</label>
+    <pre id="Response"></pre>
+    <script>
+    var data = '{{ response["response_result"] }}';
+    document.getElementById("Response").innerHTML = JSON.stringify(data, null, 4);
+    </script>
     <br>
     <label>Respone Headers - {{ response['response_code'] }}</label>
     <br>
