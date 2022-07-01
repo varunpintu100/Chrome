@@ -45,7 +45,7 @@ def select_browsers():
     return render_template('homepage.html')
 
 @app.route("/uiautomation")
-def UI():
+def selectautomation():
     if request.form.get('action_1'):
         return render_template("index.html",data=data)
     if request.form.get('action_2'):
