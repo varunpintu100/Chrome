@@ -42,7 +42,7 @@ data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 #this is used to create the page
 @app.route("/")
 def select_browsers():
-    return render_template('index.html',data=data)
+    return render_template('homepage.html')
 
 @app.route("/browser",methods=["POST"])
 def browser():
