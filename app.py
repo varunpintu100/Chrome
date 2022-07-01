@@ -46,7 +46,7 @@ def select_browsers():
 
 @app.route("/uiautomation")
 def selectautomation():
-    if request.form.get('action_1'):
+    if request.form['action_1']=="UIAutomation":
         return render_template('index.html',data=data)
     else:
         return {"message":"Integration pending"}
