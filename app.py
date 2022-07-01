@@ -44,7 +44,14 @@ data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 def select_browsers():
     return render_template('homepage.html')
 
-@app.route("/browser",methods=["POST"])
+@app.route("/uiautomation")
+def UI():
+    if request.form.get('action_1'):
+        return render_template("index.html",data=data)
+    if request.form.get('action_2'):
+        pass
+
+@app.route("/uiautomation/browser",methods=["POST"])
 def browser():
 
     browser_name = request.form.get('browsers')

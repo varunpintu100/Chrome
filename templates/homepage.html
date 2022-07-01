@@ -10,7 +10,9 @@
     <link rel="stylesheet" type="text/css" href="../static/styles/indexstyles.css">
 </head>
 <body>
-    <a href="./index.html">UI automation</a>
+    <form method="GET" action="{{ url_for('UI') }}">
+    <input type="submit" value="UI Automation" name="action_1">
     <br>
-    <a href="#">API automation</a>
+    <input type="submit" value="API Automation" name="action_2">
+</form>
 </body>
