@@ -46,11 +46,10 @@ def select_browsers():
 
 @app.route("/uiautomation")
 def selectautomation():
-    if request.form.validate_on_submit():
-        if 'action_1' in request.form:
-            return render_template('index.html',data=data)
-        else:
-            return {"message":"Integration pending"}
+    if 'action_1' in request.form:
+        return render_template('index.html',data=data)
+    else:
+        return {"message":"Integration pending"}
 
 
 @app.route("/uiautomation/browser",methods=["POST"])
