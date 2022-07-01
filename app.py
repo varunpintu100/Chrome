@@ -59,8 +59,11 @@ def apiautomation():
 def Hitendpoint():
     api=API()
     method = request.form.get('method')
+    print(method)
     url = request.form["Endpoint"]
+    print(url)
     body = request.form["RequestBody"]
+    print(body)
     try:
         if method=="GET":
             response = api.GET(url=url,body=body)
