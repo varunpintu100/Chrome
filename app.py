@@ -39,7 +39,7 @@ global driver
 
 data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 method=[{'name':"GET"},{'name':"PUT"},{'name':"POST"}]
-size=[{'size':"1270,1024"},{'size':"1366,768"},{'size':"1600,900"},{'size':"1920,1080"},{'size':"1920,1200"},{'size':"2560,1440"},{'size':"3440,1440"},{'size':"3840,2160"}]
+size=[{'size':"1270*1024"},{'size':"1366*768"},{'size':"1600*900"},{'size':"1920*1080"},{'size':"1920*1200"},{'size':"2560*1440"},{'size':"3440*1440"},{'size':"3840*2160"}]
 
 #this is used to create the page
 @app.route("/")
