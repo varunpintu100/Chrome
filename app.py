@@ -6,12 +6,10 @@ Copyright(c) PROJECTCODE. All rights reserved.
 
 '''
 
-from crypt import methods
-import json
 import traceback
 import os
 #these are the imports for flask
-from flask import Flask,make_response, jsonify,render_template,request
+from flask import Flask,render_template,request
 from models.ApiTesting import API
 #these are the imports for selenium
 from models.driv import Chrome

@@ -13,10 +13,6 @@ class Chrome:
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--no-sandbox")
-    
-    def WindowSize(self,driver,resolution):
-        arugumnent = "--window-size="+resolution
-        driver.ChromeOptions().add_argument(arugumnent)
 
     def driver(self,resolution):
         argument = "--window-size="+resolution
