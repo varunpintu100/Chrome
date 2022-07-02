@@ -15,8 +15,8 @@ class Chrome:
     chrome_options.add_argument("--no-sandbox")
 
     def driver(self,resolution):
-        argument = "--window-size="+resolution
-        self.chrome_options.add_argument(argument=argument)
+        res = "--window-size="+resolution
+        self.chrome_options.add_argument(argument=res)
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROME_DRIVER_PATH"),chrome_options=self.chrome_options)
         return driver
 
