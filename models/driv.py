@@ -10,16 +10,17 @@ class Chrome:
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--window-size=1920,1080")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--no-sandbox")
     
     def WindowSize(self,driver,resolution):
-        arugumnent = ("--window-size="+resolution)
+        arugumnent = "--window-size="+resolution
         driver.ChromeOptions().add_argument(arugumnent)
 
-    def driver(self):
+    def driver(self,resolution):
+        argument = "--window-size="+resolution
+        self.chrome_options.add_argument(argument=argument)
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROME_DRIVER_PATH"),chrome_options=self.chrome_options)
         return driver
 

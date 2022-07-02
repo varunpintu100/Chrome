@@ -98,9 +98,7 @@ def browser():
 # this class is to invoke the chrome from the main file
             chrome_1 = Chrome()
 #this method is to return the driver from remote
-            driver = chrome_1.driver()
-
-            chrome_1.chrome_options(driver,resolution)
+            driver = chrome_1.driver(resolution)
 #this is used to get the data from the form in the html
             url = str(request.form["url_input"]).replace("https://","")
 #this is used to add https: in the starting of the url
