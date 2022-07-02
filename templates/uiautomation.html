@@ -25,6 +25,12 @@
     {% endfor %}
     </select>
     <br>
+    <label>Choose the dimesions of the browesr:</label>
+    <select name="Dimensions">
+        {% for o in size %}
+        <option value="{{ o.size}}">{{o.size}}</option>
+        {% endfor %}
+        </select>
     <label>Please enter the url :</label>
     <input type="text" name="url_input" placeholder="URL">
     <br>

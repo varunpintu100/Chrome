@@ -15,7 +15,9 @@ class Chrome:
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--no-sandbox")
     
-
+    def WindowSize(self,driver,resolution):
+        arugumnent = ("--window-size="+resolution)
+        driver.ChromeOptions().add_argument(arugumnent)
 
     def driver(self):
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROME_DRIVER_PATH"),chrome_options=self.chrome_options)
@@ -66,8 +68,8 @@ class Chrome:
          img.save_to_db()
     
 
-        
-    
+brow = Chrome()
+brow.chrome_options("1920,1020")
 
     
 

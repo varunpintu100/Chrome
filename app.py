@@ -41,6 +41,7 @@ global driver
 
 data = [{'name':'firefox'},{'name':'chrome'},{'name':'IE'}]
 method=[{'name':"GET"},{'name':"PUT"},{'name':"POST"}]
+size=[{'size':"1270,1024"},{'size':"1366,768"},{'size':"1600,900"},{'size':"1920,1080"},{'size':"1920,1200"},{'size':"2560,1440"},{'size':"3440,1440"},{'size':"3840,2160"}]
 
 #this is used to create the page
 @app.route("/")
@@ -49,7 +50,7 @@ def select_browsers():
 
 @app.route("/uiautomation")
 def uiautomation():
-        return render_template('uiautomation.html',data=data)
+        return render_template('uiautomation.html',data=data,size=size)
 
 @app.route("/apiautomation")
 def apiautomation():
@@ -79,6 +80,7 @@ def Hitendpoint():
 def browser():
 
     browser_name = request.form.get('browsers')
+    resolution = request.form.get('Dimensions')
     # list_of_files = os.listdir(os.getcwd())
     # for each_file in list_of_files:
     #     if each_file.startswith("ScreenShots"):
@@ -97,6 +99,8 @@ def browser():
             chrome_1 = Chrome()
 #this method is to return the driver from remote
             driver = chrome_1.driver()
+
+            chrome_1.chrome_options(driver,resolution)
 #this is used to get the data from the form in the html
             url = str(request.form["url_input"]).replace("https://","")
 #this is used to add https: in the starting of the url
