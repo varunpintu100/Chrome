@@ -65,9 +65,6 @@ class Chrome:
          img.save_to_db()
     
 
-brow = Chrome()
-brow.chrome_options("1920,1020")
-
     
 
 
