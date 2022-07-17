@@ -76,7 +76,8 @@ def Hitendpoint():
 
 @app.route("/uiautomation/browser",methods=["POST"])
 def browser():
-    runId = IMG.Get_runID()
+    testData = IMG()
+    runId = testData.Get_runID()
     runId = runId+1
     browser_name = request.form.get('browsers')
     resolution = request.form.get('Dimensions')
