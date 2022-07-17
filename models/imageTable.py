@@ -3,7 +3,7 @@ from sqlalchemy import func
 
 class IMG(db.Model):
 
-    __tablename__='Images'
+    __tablename__= 'Images'
 
     #We are creating the coloumns for the table in the database
 
@@ -22,7 +22,7 @@ class IMG(db.Model):
         db.session.commit()
 
     def Get_runID(self):
-        results = db.session.query(func.max('Images'.RunId)).all()
+        results = db.session.query(func.max(Images.RunId)).all()
         if results is None:
             return 0
         return results
