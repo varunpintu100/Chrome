@@ -1,4 +1,5 @@
 from database import db
+from sqlalchemy import text
 
 class IMG(db.Model):
 
@@ -10,6 +11,7 @@ class IMG(db.Model):
     img=db.Column(db.Text,unique=True,nullable=False)
     Xpath=db.Column(db.Text,nullable=False)
     Name=db.Column(db.Text,nullable=False)
+    RunId = db.Column(db.Integer,nullable=False)
 
     def save_to_db(self):
         db.session.add(self)
@@ -18,3 +20,10 @@ class IMG(db.Model):
     def delete_from_db(self):
         db.session.add(self)
         db.session.commit()
+
+    def Get_runID(self):
+        sql = text('select max(RunId) from Images')
+        results = db.engine.execute(sql)
+        if results is None:
+            return 0
+        return results

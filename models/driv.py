@@ -21,48 +21,48 @@ class Chrome:
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROME_DRIVER_PATH"),chrome_options=self.chrome_options)
         return driver
 
-    def Click(self,driver,xpath,location):
+    def Click(self,driver,xpath,location,RunId):
          driver.find_element("xpath",xpath).click()
          driver.get_screenshot_as_file(location)
          url = Cloud_upload.upload(location)
-         img = IMG(img=url,Xpath=xpath,Name=location)
+         img = IMG(img=url,Xpath=xpath,Name=location,RunId=RunId)
          img.save_to_db()
     
-    def GetText(self,driver,xpath,location):
+    def GetText(self,driver,xpath,location,RunId):
         text = driver.find_element("xpath",xpath).text
         driver.get_screenshot_as_file(location)
         url = Cloud_upload.upload(location)
-        img = IMG(img=url,Xpath=xpath,Name=location)
+        img = IMG(img=url,Xpath=xpath,Name=location,RunId=RunId)
         img.save_to_db()
         return text
 
-    def Input(self,driver,xpath,input_data,location):
+    def Input(self,driver,xpath,input_data,location,RunId):
         driver.find_element("xpath",xpath).send_keys(input_data)
         driver.get_screenshot_as_file(location)
         url = Cloud_upload.upload(location)
-        img = IMG(img=url,Xpath=xpath,Name=location)
+        img = IMG(img=url,Xpath=xpath,Name=location,RunId=RunId)
         img.save_to_db()
     
-    def Enter(self,driver,xpath,location):
+    def Enter(self,driver,xpath,location,RunId):
          driver.find_element("xpath",xpath).send_keys(Keys.ENTER)
          driver.get_screenshot_as_file(location)
          url = Cloud_upload.upload(location)
-         img = IMG(img=url,Xpath=xpath,Name=location)
+         img = IMG(img=url,Xpath=xpath,Name=location,RunId=RunId)
          img.save_to_db()
     
-    def Title(self,driver,location):
+    def Title(self,driver,location,RunId):
          title = driver.title()
          driver.get_screenshot_as_file(location)
          url = Cloud_upload.upload(location)
-         img = IMG(img=url,Xpath="None",Name=location)
+         img = IMG(img=url,Xpath="None",Name=location,RunId=RunId)
          img.save_to_db()
          return title
     
-    def Clear(self,driver,xpath,location):
+    def Clear(self,driver,xpath,location,RunId):
          driver.find_element("xpath",xpath).click()
          driver.get_screenshot_as_file(location)
          url = Cloud_upload.upload(location)
-         img = IMG(img=url,Xpath=xpath,Name=location)
+         img = IMG(img=url,Xpath=xpath,Name=location,RunId=RunId)
          img.save_to_db()
     
 
