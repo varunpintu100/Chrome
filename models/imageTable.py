@@ -1,5 +1,5 @@
 from database import db
-from sqlalchemy import text
+from sqlalchemy import func
 
 class IMG(db.Model):
 
@@ -22,8 +22,7 @@ class IMG(db.Model):
         db.session.commit()
 
     def Get_runID(self):
-        sql = text('select max(RunId) from Images')
-        results = db.engine.execute(sql)
+        results = db.session.query(func.max(Images.RunId)).all()
         if results is None:
             return 0
         return results
