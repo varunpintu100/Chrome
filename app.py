@@ -81,7 +81,7 @@ def browser():
     for test_data in testData:
         if(test_data.RunId >= runId):
             print(test_data.RunId)
-            test_data.RunId = runId
+            runId = test_data.RunId
     runId = runId+1
     browser_name = request.form.get('browsers')
     resolution = request.form.get('Dimensions')
