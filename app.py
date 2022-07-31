@@ -80,6 +80,7 @@ def browser():
     runId =0 
     for test_data in testData:
         if(test_data.RunId > runId):
+            print(test_data.RunId)
             test_data.RunId = runId
     runId = runId+1
     browser_name = request.form.get('browsers')
