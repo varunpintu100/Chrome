@@ -1,5 +1,5 @@
 from database import db
-from sqlalchemy import func
+
 
 class IMG(db.Model):
 
@@ -20,9 +20,3 @@ class IMG(db.Model):
     def delete_from_db(self):
         db.session.add(self)
         db.session.commit()
-
-    def Get_runID(self):
-        results = db.session.query(func.max(Images.RunId)).all()
-        if results is None:
-            return 0
-        return results
