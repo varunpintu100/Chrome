@@ -79,7 +79,7 @@ def browser():
     testData = IMG.query.all()
     runId =0 
     for test_data in testData:
-        if(test_data.RunId > runId):
+        if(test_data.RunId >= runId):
             print(test_data.RunId)
             test_data.RunId = runId
     runId = runId+1
@@ -109,12 +109,12 @@ def browser():
             url="https://"+url
             #this is used to get the type of action that needs to be performed
             action_item = request.form.getlist('Actions')
-            print(action_item)
+           
             #this is used to get the xpath info from the forms
             xpath = request.form.getlist("Xpath_info")
-            print(xpath)
+            
             input_data = request.form.getlist("Input_text_1")
-            print(input_data)
+            
             #this is o get the url in the console
             print(f"The given URL is : {url}")
 #this is used to navigate to the respected url
