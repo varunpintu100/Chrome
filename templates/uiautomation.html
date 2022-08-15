@@ -46,9 +46,13 @@
     <span id='ct' ></span><!--  this field is used to display clock -->
     <br>
     <table>
+    <th><label>RunId</label></th>
+    <th><label>Xpath</label></th>
     {% for o in testData %}
+    <tr>
     <td><label value={{o.RunId}}>{{o.RunId}}</label></td>
     <td><label value={{o.Xpath}}>{{o.Xpath}}</label></td>
+    </tr>
     {% endfor %}
     </table>
 </body>
