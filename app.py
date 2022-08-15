@@ -169,7 +169,7 @@ def browser():
             url_list=[]
             for j in test:
                 url_list.append(j.img)
-            return render_template('report.html',i=i,urls=url_list,info_list=lt)
+            return render_template('report.html',i=i,urls=url_list,info_list=lt,testData=testData)
         return browser_name
 #this is used to quit the driver when some exception occurs all of a sudden.
     except Exception as e:
