@@ -48,7 +48,8 @@ def select_browsers():
 
 @app.route("/uiautomation")
 def uiautomation():
-        return render_template('uiautomation.html',data=data,size=size)
+        testData = IMG.query.all()
+        return render_template('uiautomation.html',data=data,size=size,testData=testData)
 
 @app.route("/apiautomation")
 def apiautomation():
@@ -169,7 +170,7 @@ def browser():
             url_list=[]
             for j in test:
                 url_list.append(j.img)
-            return render_template('report.html',i=i,urls=url_list,info_list=lt,testData=testData)
+            return render_template('report.html',i=i,urls=url_list,info_list=lt)
         return browser_name
 #this is used to quit the driver when some exception occurs all of a sudden.
     except Exception as e:
