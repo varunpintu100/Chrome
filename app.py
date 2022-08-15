@@ -86,6 +86,9 @@ def browser():
     runId = runId+1
     browser_name = request.form.get('browsers')
     resolution = request.form.get('Dimensions')
+    chrome_1 = Chrome()
+#this method is to return the driver from remote
+    driver = chrome_1.driver(resolution)
     # list_of_files = os.listdir(os.getcwd())
     # for each_file in list_of_files:
     #     if each_file.startswith("ScreenShots"):
@@ -101,9 +104,7 @@ def browser():
             #this temp is used to store the text form the xpath and store it statically
             temp=""
 # this class is to invoke the chrome from the main file
-            chrome_1 = Chrome()
-#this method is to return the driver from remote
-            driver = chrome_1.driver(resolution)
+            
 #this is used to get the data from the form in the html
             url = str(request.form["url_input"]).replace("https://","")
 #this is used to add https: in the starting of the url
