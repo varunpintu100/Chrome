@@ -102,7 +102,7 @@ def browser():
         if browser_name=='chrome':
 
             #this temp is used to store the text form the xpath and store it statically
-            temp=""
+            title=""
 # this class is to invoke the chrome from the main file
             
 #this is used to get the data from the form in the html
@@ -134,7 +134,7 @@ def browser():
 
                     if action_item[i] == "getText":
                         
-                        temp = chrome_1.GetText(driver=driver,xpath=xpath[i],location=location,RunId=runId)
+                        title = chrome_1.GetText(driver=driver,xpath=xpath[i],location=location,RunId=runId)
 
                         lt.append({'action':action_item[i],'xpath':xpath[i]})
 
@@ -154,7 +154,7 @@ def browser():
 
                     if action_item[i] == "getTitle":
 
-                        temp = chrome_1.Title(driver=driver,location=location,RunId=runId)
+                        title = chrome_1.Title(driver=driver,location=location,RunId=runId)
     
                         lt.append({'action':action_item[i],'xpath':'None'})
                     
