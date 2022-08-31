@@ -2,7 +2,7 @@ from selenium import webdriver
 from models.Cloudinary import Cloud
 import os
 from models.imageTable import IMG
-from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.common.keys import Keys
 
 Cloud_upload = Cloud()
 
@@ -15,9 +15,9 @@ class Chrome:
     chrome_options.add_argument("--no-sandbox")
 
     def driver(self,resolution):
-        #resolution = resolution.replace("*",",")
-        #res = "--window-size="+resolution
-        #self.chrome_options.add_argument(argument=res)
+        resolution = resolution.replace("*",",")
+        res = "--window-size="+resolution
+        self.chrome_options.add_argument(argument=res)
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROME_DRIVER_PATH"),chrome_options=self.chrome_options)
         return driver
 
