@@ -10,9 +10,10 @@ class Chrome:
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("start-maximized")
     chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--remote-debugging-port=9222")
 
     def driver(self,resolution):
         resolution = resolution.replace("*",",")
@@ -20,7 +21,7 @@ class Chrome:
         self.chrome_options.add_argument(argument=res)
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROME_DRIVER_PATH"),chrome_options=self.chrome_options)
         return driver
-        
+
     def Click(self,driver,xpath,location,RunId,Action,UserId,xpath_name):
          driver.find_element("xpath",xpath).click()
          driver.get_screenshot_as_file(location)
