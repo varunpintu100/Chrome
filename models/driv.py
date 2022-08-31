@@ -2,7 +2,7 @@ from selenium import webdriver
 from models.Cloudinary import Cloud
 import os
 from models.imageTable import IMG
-# from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.keys import Keys
 
 Cloud_upload = Cloud()
 
@@ -20,7 +20,7 @@ class Chrome:
         self.chrome_options.add_argument(argument=res)
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROME_DRIVER_PATH"),chrome_options=self.chrome_options)
         return driver
-
+        
     def Click(self,driver,xpath,location,RunId,Action,UserId,xpath_name):
          driver.find_element("xpath",xpath).click()
          driver.get_screenshot_as_file(location)
