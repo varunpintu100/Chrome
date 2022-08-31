@@ -3,7 +3,7 @@ from database import db
 
 class IMG(db.Model):
 
-    __tablename__= 'Images'
+    __tablename__= 'images'
 
     #We are creating the coloumns for the table in the database
 
@@ -12,6 +12,8 @@ class IMG(db.Model):
     Xpath=db.Column(db.Text,nullable=False)
     Name=db.Column(db.Text,nullable=False)
     RunId = db.Column(db.Integer,nullable=False)
+    Action = db.Column(db.Text,nullable=False)
+    UserId = db.Column(db.Text,nullable=False)
 
     def save_to_db(self):
         db.session.add(self)
