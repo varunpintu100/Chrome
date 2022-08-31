@@ -14,6 +14,7 @@ class IMG(db.Model):
     RunId = db.Column(db.Integer,nullable=False)
     Action = db.Column(db.Text,nullable=False)
     UserId = db.Column(db.Text,nullable=False)
+    xpath_name = db.Column(db.Text,nullable=False)
 
     def save_to_db(self):
         db.session.add(self)

@@ -128,19 +128,19 @@ def browser():
             #this is used to perform the action item and based on the if condition respective action will happen
                     if action_item[i] == "click":
 
-                        chrome_1.Click(driver=driver,xpath=xpath[i],location=location,RunId=runId)
+                        chrome_1.Click(driver=driver,xpath=xpath[i],location=location,RunId=runId,Action=action_item[i],UserId="Developer",xpath_name="Test")
 
                         lt.append({'action':action_item[i],'xpath':xpath[i]})
 
                     if action_item[i] == "getText":
                         
-                        title = chrome_1.GetText(driver=driver,xpath=xpath[i],location=location,RunId=runId)
+                        title = chrome_1.GetText(driver=driver,xpath=xpath[i],location=location,RunId=runId,Action=action_item[i],UserId="Developer",xpath_name="Test")
 
                         lt.append({'action':action_item[i],'xpath':xpath[i]})
 
                     if action_item[i] == "Input":
 
-                        chrome_1.Input(driver=driver,xpath=xpath[i],input_data=input_data[j],location=location,RunId=runId)
+                        chrome_1.Input(driver=driver,xpath=xpath[i],input_data=input_data[j],location=location,RunId=runId,Action=action_item[i],UserId="Developer",xpath_name="Test")
 
                         j=j+1
                         
@@ -148,19 +148,19 @@ def browser():
 
                     if action_item[i] == "Enter":
 
-                        chrome_1.Enter(driver=driver,xpath=xpath[i],location=location,RunId=runId)
+                        chrome_1.Enter(driver=driver,xpath=xpath[i],location=location,RunId=runId,Action=action_item[i],UserId="Developer",xpath_name="Test")
 
                         lt.append({'action':action_item[i],'xpath':xpath[i]})
 
                     if action_item[i] == "getTitle":
 
-                        title = chrome_1.Title(driver=driver,location=location,RunId=runId)
+                        title = chrome_1.Title(driver=driver,location=location,RunId=runId,Action=action_item[i],UserId="Developer",xpath_name="Test")
     
                         lt.append({'action':action_item[i],'xpath':'None'})
                     
                     if action_item[i] == "Clear":
 
-                        chrome_1.Clear(driver=driver,xpath=xpath[i],location=location,RunId=runId)
+                        chrome_1.Clear(driver=driver,xpath=xpath[i],location=location,RunId=runId,Action=action_item[i],UserId="Developer",xpath_name="Test")
 
                         lt.append({'action':action_item[i],'xpath':xpath[i]})
 
