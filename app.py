@@ -86,9 +86,17 @@ def browser():
     runId = runId+1
     browser_name = request.form.get('browsers')
     resolution = request.form.get('Dimensions')
-    chrome_1 = Chrome()
+
+    
+    chrome_1 = Chrome().driver(resolution=resolution)
 #this method is to return the driver from remote
-    driver = chrome_1.driver(resolution)
+    
+    
+    
+    #driver = chrome_1.driver(resolution)
+
+
+
     # list_of_files = os.listdir(os.getcwd())
     # for each_file in list_of_files:
     #     if each_file.startswith("ScreenShots"):
